@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const emit = defineEmits<{
+  (e: 'wants-be-creator' ): void
+}>()
+</script>
+
 <template>
   <section class="w-full h-full flex flex-col items-center justify-center">
     <h1 
@@ -8,7 +14,12 @@
       Ganhe uma renda extra com os códigos que você faz no dia a dia.
     </p>
     <div class="flex flex-col justify-center items-center">
-      <Button label="Continuar como creator" icon-pos="right" icon="pi pi-arrow-right" />
+      <Button 
+        label="Continuar como creator" 
+        icon-pos="right" 
+        icon="pi pi-arrow-right" 
+        @click="() => emit('wants-be-creator')"
+      />
     </div>
   </section>
 </template>

@@ -31,5 +31,5 @@
 html,
 body,
 #__nuxt {
-  @apply w-full h-full scroll-smooth;
+  @apply w-full h-screen scroll-smooth;
 }
