@@ -3,12 +3,12 @@ const visible = defineModel<boolean>('visible')
 </script>
 
 <template>
-  <Dialog v-model:visible="visible" modal header="Compra efetuada com sucesso!" :style="{ width: '400px' }">
+  <Dialog v-model:visible="visible" modal header="Não foi possível concluir a compra!" :style="{ width: '400px' }">
     <div class="m-0 flex flex-col items-center justify-center w-full">
-      <i class="pi pi-check-circle text-primary-500 text-6xl my-5" />
+      <i class="pi pi-times-circle text-red-500 text-6xl my-5" />
       <p class="font-[Inter] text-gray-700 text-center">
-        Parabéns pela compra! <br />
-        Você receberá no e-mail fornecido no checkout o seu gist 🤩
+        Sentimos muito por isso! 🫤 <br />
+        Por favor, tente efetuar a compra novamente.
       </p>
     </div>
 
