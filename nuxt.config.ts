@@ -28,7 +28,11 @@ export default defineNuxtConfig({
     redirect: false
   },
   imports: {
-    dirs: ['./composables/useMarkdown', './composables/useServices']
+    dirs: [
+      './composables/useMarkdown',
+      './composables/useServices',
+      './composables/useSession'
+    ]
   },
   runtimeConfig: {
     public: {

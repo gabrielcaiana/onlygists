@@ -12,5 +12,10 @@ export default (client: SupabaseClient<Database>, options: ServiceOptions) => ({
       options: { redirectTo: options.redirectTo },
     })
     return response
+  },
+
+  async signOut() {
+    const response = await client.auth.signOut()
+    return response
   }
 })
