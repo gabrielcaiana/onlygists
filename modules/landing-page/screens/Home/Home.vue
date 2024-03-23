@@ -10,12 +10,12 @@ const handleLogin = () => {
 </script>
 
 <template>
-  <MainContainer>
+  <MainContent>
     <template #header>
       <Header @wants-be-creator="handleLogin" />
     </template>
     <template #content>
       <Hero  @wants-be-creator="handleLogin" />
     </template>
-  </MainContainer>
+  </MainContent>
 </template>
