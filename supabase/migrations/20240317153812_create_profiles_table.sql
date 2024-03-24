@@ -2,6 +2,7 @@ create table
   profiles (
     id uuid primary key references auth.users(id),
     email varchar not null,
+    username varchar not null,
     name varchar not null,
     site varchar,
     phone varchar,
