@@ -81,7 +81,7 @@ export type Database = {
       profiles: {
         Row: {
           address: Json | null
-          avatar_url: string | null
+          avatar_url: string
           bio: string | null
           created_at: string
           email: string
@@ -90,10 +90,11 @@ export type Database = {
           payment_connected_account: string | null
           phone: string | null
           site: string | null
+          username: string
         }
         Insert: {
           address?: Json | null
-          avatar_url?: string | null
+          avatar_url: string
           bio?: string | null
           created_at?: string
           email: string
@@ -102,10 +103,11 @@ export type Database = {
           payment_connected_account?: string | null
           phone?: string | null
           site?: string | null
+          username: string
         }
         Update: {
           address?: Json | null
-          avatar_url?: string | null
+          avatar_url?: string
           bio?: string | null
           created_at?: string
           email?: string
@@ -114,6 +116,7 @@ export type Database = {
           payment_connected_account?: string | null
           phone?: string | null
           site?: string | null
+          username?: string
         }
         Relationships: [
           {
