@@ -20,7 +20,7 @@ const handleNavigateToDetail = (id: string) => {
   <PublicHeadline />
 
   <WidgetGroup>
-    <WidgetGroupLoader :loading="true" :amount="3">
+    <WidgetGroupLoader :loading="false" :amount="3">
       <WidgeCondensed :value="10" label="Gists do total" />
       <WidgeCondensed :value="5" label="Gists gratuitos" />
       <WidgeCondensed :value="5" label="Gists pagos" />

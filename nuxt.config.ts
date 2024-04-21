@@ -31,6 +31,7 @@ export default defineNuxtConfig({
     dirs: [
       './composables/useMarkdown',
       './composables/useServices',
+      './composables/useLogger'
     ]
   },
   runtimeConfig: {
