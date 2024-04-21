@@ -5,12 +5,11 @@ export function useMyself() {
   const { logAndTrack } = useLogger()
   const services = useServices()
   const session = useSession()
-  const loading:Ref<boolean> = ref(false)
+  const loading:Ref<boolean> = ref(true)
   const user = ref<User>()
 
   const fetchUser = async () => {
     try {
-      loading.value = true
       const response = await services.users.getMyself(session.user.value?.id!)
 
       if(!response) {
