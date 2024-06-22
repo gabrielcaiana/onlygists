@@ -6,7 +6,7 @@ import type { InjectionKey } from "vue";
 export const myselfKey = Symbol("myself") as InjectionKey<MyselfContextProvider>
 
 export function useMyself() {
-  const { logAndTrack } = useLogger()
+  const { logAndTrace } = useLogger()
   const services = useServices()
   const session = useSession()
   const loading:Ref<boolean> = ref(true)
@@ -24,7 +24,7 @@ export function useMyself() {
 
       user.value = response
     } catch (error) {
-      logAndTrack(error)
+      logAndTrace(error)
     } finally {
       loading.value = false
     }

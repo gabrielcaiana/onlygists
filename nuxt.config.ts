@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     "nuxt-primevue",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
-    '@nuxtjs/supabase'
+    '@nuxtjs/supabase',
+    '@vueuse/nuxt',
   ],
   css: ["primeicons/primeicons.css"],
   googleFonts: {
