@@ -23,12 +23,12 @@ const user = defineModel<User>({
       <div class="flex flex-col gap-2 flex-1">
         <label for="name">Nome</label>
         <InputText id="name" placeholder="Gabriel Caiana" v-model="user.name" />
-        <small v-if="errors?.name">{{ errors.name?._errors }}</small>
+        <small class="text-red-500 font-medium" v-if="errors?.name">{{ errors.name?._errors[0] }}</small>
       </div>
       <div class="flex flex-col gap-2 flex-1">
         <label for="site">Site</label>
-        <InputText id="site" placeholder="gabrielcaianaguedes@gmail.com" v-model="user.site" />
-        <small v-if="errors?.site">{{ errors.site?._errors }}</small>
+        <InputText id="site" placeholder="site.com.br" v-model="user.site" />
+        <small class="text-red-500 font-medium" v-if="errors?.site">{{ errors.site?._errors[0] }}</small>
       </div>
     </div>
 
@@ -36,12 +36,12 @@ const user = defineModel<User>({
       <div class="flex flex-col gap-2 flex-1">
         <label for="bio">Bio</label>
         <InputText id="bio" placeholder="Software Engineer" v-model="user.bio" />
-        <small v-if="errors?.bio">{{ errors.bio?._errors }}</small>
+        <small class="text-red-500 font-medium" v-if="errors?.bio">{{ errors.bio?._errors[0] }}</small>
       </div>
       <div class="flex flex-col gap-2 flex-1">
         <label for="phone">Telefone</label>
         <InputText id="phone" placeholder="(99) 9 9999-9999" v-model="user.phone" v-maska data-maska="(##) # ####-####" />
-        <small v-if="errors?.phone">{{ errors.phone?._errors }}</small>
+        <small class="text-red-500 font-medium" v-if="errors?.phone">{{ errors.phone?._errors[0] }}</small>
       </div>
     </div>
   </div>

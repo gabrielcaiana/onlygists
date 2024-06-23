@@ -3,6 +3,7 @@ import type { Database } from "~/libs/supabase/schema"
 import { getMyselfAdapter, searchAddressByZipCodeAdapter } from './adapters'
 import type { AxiosInstance } from 'axios'
 import type { SearchAddressResponse } from './types'
+import type { User } from '@/modules/users/entities/User/User'
 
 export default (client: SupabaseClient<Database>, httpClient: AxiosInstance) => ({
   async searchAddressByZipCode(zipCode: string) {
@@ -19,4 +20,27 @@ export default (client: SupabaseClient<Database>, httpClient: AxiosInstance) => 
     const user = getMyselfAdapter(response.data)
     return user
   },
+
+  async update(id: string, { name, site, bio, phone, address }: User) {
+    await client
+      .from('profiles')
+      .update({
+        name,
+        site,
+        bio,
+        phone,
+        address: {
+          zipCode: address?.zipCode,
+          number: address?.number,
+          street: address?.street,
+          city: address?.city,
+          state: address?.state,
+          neighborhood: address?.neighborhood,
+          complement: address?.complement,
+        },
+      })
+      .eq('id', id)
+
+    return { id }
+  }
 })

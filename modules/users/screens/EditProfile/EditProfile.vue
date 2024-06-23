@@ -6,6 +6,7 @@ import AddressForm from '@/modules/users/components/AddressForm/AddressForm.vue'
 import { myselfKey } from '@/modules/users/composables/useMyself/useMyself';
 import { useUserProfileActions } from '@/modules/users/composables/useUserProfileActions/useUserProfileActions'
 import { useAddressUpdate } from '@/modules/users/composables/userAddressUpdate/userAddressUpdate';
+import { useUserUpdate } from '@/modules/users/composables/useUserUpdate/useUserUpdate';
 import type { MyselfContextProvider } from '@/modules/users/composables/useMyself/types';
 
 const { user, loading } = inject(myselfKey) as MyselfContextProvider
@@ -28,6 +29,10 @@ const { loading: addressLoading, searchZipCode, address } = useAddressUpdate({
   user
 })
 
+const { loading: updateLoading, safeParse, update, errors } = useUserUpdate({
+  user
+})
+
 const handleShare = (username: string) => {
   share(username)
 }
@@ -37,6 +42,15 @@ const handleNavigateToProfile = (username: string) => {
 }
 
 const handleZipcodeSearch = () => searchZipCode()
+
+const handleUpdateProfile = () => {
+  const isValid = safeParse().success
+
+  if(!isValid || !user.value) return
+
+  user.value.address = address.value
+  update()
+}
 </script>
 
 <template>
@@ -46,12 +60,8 @@ const handleZipcodeSearch = () => searchZipCode()
         @navigate-to-profile="handleNavigateToProfile" />
     </HeadlineEditLoader>
 
-    <pre>
-      {{ user }}
-    </pre>
-
     <WidgetDefault title="Informações básicas">
-      <BasicInfoForm v-model="user" />
+      <BasicInfoForm v-model="user" :errors="errors" />
     </WidgetDefault>
 
     <WidgetDefault title="Endereço" class="mt-5">
@@ -61,5 +71,14 @@ const handleZipcodeSearch = () => searchZipCode()
         @trigger-address-search="handleZipcodeSearch" 
       />
     </WidgetDefault>
+
+    <Button 
+      @click="handleUpdateProfile" 
+      :loading="updateLoading" 
+      class="mt-5 w-full md:w-auto" 
+      label="Atualizar" 
+      icon="pi pi-pencil"
+      icon-pos="right"
+    />
   </div>
 </template>
