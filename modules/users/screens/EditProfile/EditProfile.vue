@@ -15,7 +15,7 @@ const { share } = useUserProfileActions()
 
 const router = useRouter()
 
-const profilePick = computed(() => user.value?.avatarUrl!)
+const profilePick = computed(() => user.value?.avatarUrl || '')
 
 const nickname = computed(() => {
   if (!user.value?.name) {
