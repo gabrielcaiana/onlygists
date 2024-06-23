@@ -33,7 +33,7 @@ const handleNavigateToDetail = (id: string) => {
         <GistCardItem
           v-for="i in 5"
           id="123"
-          key="i"
+          :key="i"
           title="useCurrentUser.ts"
           description="Hook para controlar a **store** do usuário"
           :price="10"
