@@ -4,5 +4,3 @@
     <span class="font-[Inter] font-bold text-gray-700 text-lg md:text-xl">onlygists</span>
   </div>
 </template>
-
-

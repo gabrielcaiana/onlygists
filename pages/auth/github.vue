@@ -5,5 +5,3 @@ import OAuthRedirect from '@/modules/auth/screens/OAuthRedirect/OAuthRedirect.vu
 <template>
   <OAuthRedirect />
 </template>
-
-

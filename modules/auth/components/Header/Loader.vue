@@ -5,10 +5,10 @@ defineProps<{
 </script>
 
 <template>
-<header v-if="loading" class="w-full shadow">
-  <nav class="bg-white px-4 lg:px-6 py-2.5">
-    <div class="flex justify-between items-center mx-auto max-w-screen-xl">
-      <div class="flex items-center">
+  <header v-if="loading" class="w-full shadow">
+    <nav class="bg-white px-4 lg:px-6 py-2.5">
+      <div class="flex justify-between items-center mx-auto max-w-screen-xl">
+        <div class="flex items-center">
           <nuxt-link to="/app/panel">
             <Logo />
           </nuxt-link>
@@ -18,8 +18,8 @@ defineProps<{
           <Skeleton width="7rem" height="2rem" />
           <Skeleton shape="circle" size="2rem" />
         </div>
-    </div>
-  </nav>
-</header>
-<slot v-else />
+      </div>
+    </nav>
+  </header>
+  <slot v-else />
 </template>

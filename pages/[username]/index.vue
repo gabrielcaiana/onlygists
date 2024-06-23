@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import PublicProfile from '@/modules/users/screens/PublicProfile/PublicProfile.vue';
+import PublicProfile from '@/modules/users/screens/PublicProfile/PublicProfile.vue'
 
 definePageMeta({
-  layout: 'checkout'
+  layout: 'checkout',
 })
 </script>
 

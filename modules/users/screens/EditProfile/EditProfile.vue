@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import AddressForm from '@/modules/users/components/AddressForm/AddressForm.vue'
+import BasicInfoForm from '@/modules/users/components/BasicInfoForm/BasicInfoForm.vue'
 import HeadlineEdit from '@/modules/users/components/HeadlineEdit/HeadlineEdit.vue'
 import HeadlineEditLoader from '@/modules/users/components/HeadlineEdit/Loader.vue'
-import BasicInfoForm from '@/modules/users/components/BasicInfoForm/BasicInfoForm.vue'
-import AddressForm from '@/modules/users/components/AddressForm/AddressForm.vue'
-import { myselfKey } from '@/modules/users/composables/useMyself/useMyself';
+import type { MyselfContextProvider } from '@/modules/users/composables/useMyself/types'
+import { myselfKey } from '@/modules/users/composables/useMyself/useMyself'
+import { useAddressUpdate } from '@/modules/users/composables/userAddressUpdate/userAddressUpdate'
 import { useUserProfileActions } from '@/modules/users/composables/useUserProfileActions/useUserProfileActions'
-import { useAddressUpdate } from '@/modules/users/composables/userAddressUpdate/userAddressUpdate';
-import { useUserUpdate } from '@/modules/users/composables/useUserUpdate/useUserUpdate';
-import type { MyselfContextProvider } from '@/modules/users/composables/useMyself/types';
+import { useUserUpdate } from '@/modules/users/composables/useUserUpdate/useUserUpdate'
 
 const { user, loading } = inject(myselfKey) as MyselfContextProvider
 
@@ -25,12 +25,21 @@ const nickname = computed(() => {
   return user.value.name
 })
 
-const { loading: addressLoading, searchZipCode, address } = useAddressUpdate({
-  user
+const {
+  loading: addressLoading,
+  searchZipCode,
+  address,
+} = useAddressUpdate({
+  user,
 })
 
-const { loading: updateLoading, safeParse, update, errors } = useUserUpdate({
-  user
+const {
+  loading: updateLoading,
+  safeParse,
+  update,
+  errors,
+} = useUserUpdate({
+  user,
 })
 
 const handleShare = (username: string) => {
@@ -46,7 +55,7 @@ const handleZipcodeSearch = () => searchZipCode()
 const handleUpdateProfile = () => {
   const isValid = safeParse().success
 
-  if(!isValid || !user.value) return
+  if (!isValid || !user.value) return
 
   user.value.address = address.value
   update()
@@ -56,8 +65,13 @@ const handleUpdateProfile = () => {
 <template>
   <div>
     <HeadlineEditLoader :loading="loading">
-      <HeadlineEdit class="my-10" :username="nickname" :avatar-url="profilePick" @share="handleShare"
-        @navigate-to-profile="handleNavigateToProfile" />
+      <HeadlineEdit
+        class="my-10"
+        :username="nickname"
+        :avatar-url="profilePick"
+        @share="handleShare"
+        @navigate-to-profile="handleNavigateToProfile"
+      />
     </HeadlineEditLoader>
 
     <WidgetDefault title="Informações básicas">
@@ -65,20 +79,16 @@ const handleUpdateProfile = () => {
     </WidgetDefault>
 
     <WidgetDefault title="Endereço" class="mt-5">
-      <AddressForm 
-        v-model="address" 
-        :loading="addressLoading" 
-        @trigger-address-search="handleZipcodeSearch" 
-      />
+      <AddressForm v-model="address" :loading="addressLoading" @trigger-address-search="handleZipcodeSearch" />
     </WidgetDefault>
 
-    <Button 
-      @click="handleUpdateProfile" 
-      :loading="updateLoading" 
-      class="mt-5 w-full md:w-auto" 
-      label="Atualizar" 
+    <Button
+      :loading="updateLoading"
+      class="mt-5 w-full md:w-auto"
+      label="Atualizar"
       icon="pi pi-pencil"
       icon-pos="right"
+      @click="handleUpdateProfile"
     />
   </div>
 </template>

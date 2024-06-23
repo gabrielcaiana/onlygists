@@ -2,7 +2,7 @@
 import Header from '@/modules/auth/components/Header/Header.vue'
 import HeaderLoader from '@/modules/auth/components/Header/Loader.vue'
 import { useSession } from '@/modules/auth/composables/useSession/useSession'
-import { useMyself } from '@/modules/users/composables/useMyself/useMyself';
+import { useMyself } from '@/modules/users/composables/useMyself/useMyself'
 
 const router = useRouter()
 const session = useSession()
@@ -13,7 +13,7 @@ const profilePick = computed(() => {
 })
 
 const nickname = computed(() => {
-  if(!user.value?.name) {
+  if (!user.value?.name) {
     return 'Usuário'
   }
 
@@ -24,34 +24,34 @@ const nickname = computed(() => {
 const handleLogout = async () => {
   const { error } = await session.logout()
 
-  if(!error) {
+  if (!error) {
     router.push('/')
-  } 
+  }
 }
 </script>
 
 <template>
   <div class="w-full h-full flex flex-col items-center">
-   <MainContent>
-    <template #header>
-      <HeaderLoader :loading="loading">
-        <Header
-        :profile-pic="profilePick"
-        :nickname="nickname"
-        @navigate-to-new-gist="() => router.push('/app/gist/create')"
-        @navigate-to-profile-edit="() => router.push('/app/profile/edit')"
-        @navigate-to-sales="() => router.push('/app/sales/all')"
-        @navigate-to-reports="() => router.push('/app/panel')"
-        @logout="handleLogout()"
-      />
-      </HeaderLoader>
+    <MainContent>
+      <template #header>
+        <HeaderLoader :loading="loading">
+          <Header
+            :profile-pic="profilePick"
+            :nickname="nickname"
+            @navigate-to-new-gist="() => router.push('/app/gist/create')"
+            @navigate-to-profile-edit="() => router.push('/app/profile/edit')"
+            @navigate-to-sales="() => router.push('/app/sales/all')"
+            @navigate-to-reports="() => router.push('/app/panel')"
+            @logout="handleLogout()"
+          />
+        </HeaderLoader>
       </template>
 
-    <template #content>
-      <Splash :loading="loading">
-        <slot />
-      </Splash>
-    </template>
-   </MainContent>
+      <template #content>
+        <Splash :loading="loading">
+          <slot />
+        </Splash>
+      </template>
+    </MainContent>
   </div>
 </template>

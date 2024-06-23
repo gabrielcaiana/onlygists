@@ -62,7 +62,7 @@ const toogle = (event: Event) => {
         <div class="flex items-center">
           <button class="flex gap-2 items-center" aria-haspopup="true" aria-controls="header-auth-menu" @click="toogle">
             <span class="font-[Inter] font-regular text-lg text-gray-700">Olá, {{ props.nickname }}!</span>
-            <div class="w-9 h-9 rounded-full overflow-hidden" v-if="props.profilePic">
+            <div v-if="props.profilePic" class="w-9 h-9 rounded-full overflow-hidden">
               <img :src="props.profilePic" alt="foto de perfil do usuário" />
             </div>
           </button>

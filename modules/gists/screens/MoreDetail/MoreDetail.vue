@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import PublicHeadline from '@/modules/gists/components/PublicHeadline/PublicHeadline.vue'
 import GistCodeSpippet from '@/modules/gists/components/GistCodeSpippet/GistCodeSpippet.vue'
-import LazyDialogPaymentSuccess from '@/modules/payments/components/DialogPaymentSuccess/DialogPaymentSuccess.vue';
-import LazyDialogPaymentError from '@/modules/payments/components/DialogPaymentError/DialogPaymentError.vue';
+import PublicHeadline from '@/modules/gists/components/PublicHeadline/PublicHeadline.vue'
+import LazyDialogPaymentError from '@/modules/payments/components/DialogPaymentError/DialogPaymentError.vue'
+import LazyDialogPaymentSuccess from '@/modules/payments/components/DialogPaymentSuccess/DialogPaymentSuccess.vue'
 
 const route = useRoute()
-const isPaymentSuccessfully:Ref<boolean> = ref(false)
-const isPaymentFail:Ref<boolean> = ref(false)
+const isPaymentSuccessfully: Ref<boolean> = ref(false)
+const isPaymentFail: Ref<boolean> = ref(false)
 
 onMounted(() => {
   const { success_payment, fail_payment } = route.query
 
-  if(success_payment) {
+  if (success_payment) {
     isPaymentSuccessfully.value = true
   }
 
-  if(fail_payment) {
+  if (fail_payment) {
     isPaymentFail.value = true
   }
 })
-
 </script>
 
 <template>

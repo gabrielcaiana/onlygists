@@ -22,11 +22,11 @@ export function useUserProfileActions() {
     nativeShare({
       title: 'Perfil do onygists',
       text: `Confira o perfil do @${username} no onygists!`,
-      url
+      url,
     })
   }
 
   return {
-    share
+    share,
   }
 }

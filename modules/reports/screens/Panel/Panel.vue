@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { myselfKey } from '@/modules/users/composables/useMyself/useMyself';
-import type { MyselfContextProvider } from '@/modules/users/composables/useMyself/types';
+import type { MyselfContextProvider } from '@/modules/users/composables/useMyself/types'
+import { myselfKey } from '@/modules/users/composables/useMyself/useMyself'
 
 const { user } = inject(myselfKey) as MyselfContextProvider
 </script>

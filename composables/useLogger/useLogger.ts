@@ -3,7 +3,7 @@ export function useLogger() {
   const isProd = config.public.nodeEnv === 'production'
 
   const logAndTrace = (...args: any[]) => {
-    if(isProd) {
+    if (isProd) {
       // TODO: send to sentry
       return
     }
@@ -12,6 +12,6 @@ export function useLogger() {
   }
 
   return {
-    logAndTrace
+    logAndTrace,
   }
 }

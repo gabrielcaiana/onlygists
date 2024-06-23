@@ -1,6 +1,7 @@
-import type { User } from '@/modules/users/entities/User/User'
-import type { Address } from '@/modules/users/entities/Address/Address'
 import type { Database } from '@/libs/supabase/schema'
+import type { Address } from '@/modules/users/entities/Address/Address'
+import type { User } from '@/modules/users/entities/User/User'
+
 import type { SearchAddressResponse } from './types'
 
 type profileTable = Database['public']['Tables']['profiles']

@@ -1,32 +1,16 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
+  extends: ['@nuxtjs/eslint-config-typescript', 'plugin:prettier/recommended'],
+  plugins: ['simple-import-sort'],
+  rules: {
+    'simple-import-sort/imports': 'error',
+    'import/order': 'off',
+    'vue/multi-word-component-names': 'off',
+    'vue/no-multiple-template-root': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'vue/require-default-prop': 'off',
+    'no-throw-literal': 'off',
+    'vue/no-v-html': 'off',
+    camelcase: 'off',
   },
-  extends: [
-    "standard-with-typescript",
-    "plugin:vue/vue3-recommended",
-    "@nuxtjs/eslint-config-typescript",
-    "plugin:prettier/recommended",
-  ],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: [".eslintrc.{js,cjs}"],
-      parserOptions: {
-        sourceType: "script",
-      },
-    },
-  ],
-  parser: "vue-eslint-parser",
-  parserOptions: {
-    ecmaVersion: "latest",
-    parser: "@typescript-eslint/parser",
-    sourceType: "module",
-  },
-  plugins: ["vue"],
-  rules: {},
-};
+}

@@ -1,4 +1,4 @@
-import path from "node:path"
+import path from 'node:path'
 
 export default defineNuxtConfig({
   devtools: {
@@ -8,38 +8,28 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: [
-    "nuxt-primevue",
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/google-fonts",
-    '@nuxtjs/supabase',
-    '@vueuse/nuxt',
-  ],
-  css: ["primeicons/primeicons.css"],
+  modules: ['nuxt-primevue', '@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@nuxtjs/supabase', '@vueuse/nuxt'],
+  css: ['primeicons/primeicons.css'],
   googleFonts: {
     base64: true,
-    fontsDir: "assets/fonts",
+    fontsDir: 'assets/fonts',
     overwriting: true,
     families: {
-      "Inter": [300, 500, 800],
+      Inter: [300, 500, 800],
     },
   },
   primevue: {
     options: { unstyled: true },
     importPT: {
       as: 'lara',
-      from: path.resolve(__dirname, './assets/presets/lara/')
-    }
+      from: path.resolve(__dirname, './assets/presets/lara/'),
+    },
   },
   supabase: {
-    redirect: false
+    redirect: false,
   },
   imports: {
-    dirs: [
-      './composables/useMarkdown',
-      './composables/useServices',
-      './composables/useLogger'
-    ]
+    dirs: ['./composables/useMarkdown', './composables/useServices', './composables/useLogger'],
   },
   runtimeConfig: {
     public: {
@@ -49,4 +39,4 @@ export default defineNuxtConfig({
       siteUrl: process.env.SITE_URL,
     },
   },
-});
+})

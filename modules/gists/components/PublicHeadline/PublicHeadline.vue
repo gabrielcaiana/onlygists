@@ -1,17 +1,20 @@
 <script setup lang="ts">
 const { render } = useMarkdown()
 
-const props = withDefaults(defineProps<{
-  title: string
-  lang: string
-  description: string
-  author: string
-}>(), {
-  title: 'Currency Converter',
-  lang: 'Javascript',
-  description: 'A simple currency converter',
-  author: 'gabrielcaiana'
-})
+const props = withDefaults(
+  defineProps<{
+    title: string
+    lang: string
+    description: string
+    author: string
+  }>(),
+  {
+    title: 'Currency Converter',
+    lang: 'Javascript',
+    description: 'A simple currency converter',
+    author: 'gabrielcaiana',
+  },
+)
 
 const renderDescription = computed(() => render(props.description))
 </script>
@@ -23,7 +26,7 @@ const renderDescription = computed(() => render(props.description))
       <Chip class="text-sm" :label="lang" icon="pi pi-bolt" />
     </div>
 
-    <div v-html="renderDescription" class="font-[Inter] text-gray-700 font-regular text-base md:text-lg" />
+    <div class="font-[Inter] text-gray-700 font-regular text-base md:text-lg" v-html="renderDescription" />
 
     <p class="font-[Inter] font-regular text-gray-500 text-sm md:text-base">
       <i class="pi pi-star"></i>

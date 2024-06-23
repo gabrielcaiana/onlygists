@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Header from '@/modules/auth/components/Header/Header.vue'
 import HeaderLoader from '@/modules/auth/components/Header/Loader.vue'
-import HeaderNotAuthenticated from '@/modules/landing-page/components/Header/Header.vue'
 import { useSession } from '@/modules/auth/composables/useSession/useSession'
-import { useMyself } from '@/modules/users/composables/useMyself/useMyself';
+import HeaderNotAuthenticated from '@/modules/landing-page/components/Header/Header.vue'
+import { useMyself } from '@/modules/users/composables/useMyself/useMyself'
 
 const router = useRouter()
 const session = useSession()
@@ -14,7 +14,7 @@ const profilePick = computed(() => {
 })
 
 const nickname = computed(() => {
-  if(!user.value?.name) {
+  if (!user.value?.name) {
     return 'Usuário'
   }
 
@@ -25,9 +25,9 @@ const nickname = computed(() => {
 const handleLogout = async () => {
   const { error } = await session.logout()
 
-  if(!error) {
+  if (!error) {
     router.push('/')
-  } 
+  }
 }
 
 const handleWantsBeCreator = () => {
@@ -37,29 +37,29 @@ const handleWantsBeCreator = () => {
 
 <template>
   <div class="w-full h-full flex flex-col items-center">
-   <MainContent>
-    <template #header>
-      <HeaderLoader :loading="loading">
-        <Header
-        v-if="session.isLogged()"
-          :profile-pic="profilePick"
-          :nickname="nickname"
-          @navigate-to-new-gist="() => router.push('/app/gist/create')"
-          @navigate-to-profile-edit="() => router.push('/app/profile/edit')"
-          @navigate-to-sales="() => router.push('/app/sales/all')"
-          @navigate-to-reports="() => router.push('/app/panel')"
-          @logout="handleLogout()"
-        />
+    <MainContent>
+      <template #header>
+        <HeaderLoader :loading="loading">
+          <Header
+            v-if="session.isLogged()"
+            :profile-pic="profilePick"
+            :nickname="nickname"
+            @navigate-to-new-gist="() => router.push('/app/gist/create')"
+            @navigate-to-profile-edit="() => router.push('/app/profile/edit')"
+            @navigate-to-sales="() => router.push('/app/sales/all')"
+            @navigate-to-reports="() => router.push('/app/panel')"
+            @logout="handleLogout()"
+          />
 
-        <HeaderNotAuthenticated v-else @wants-be-creator="handleWantsBeCreator" />
-      </HeaderLoader>
+          <HeaderNotAuthenticated v-else @wants-be-creator="handleWantsBeCreator" />
+        </HeaderLoader>
       </template>
 
-    <template #content>
-      <Splash :loading="loading">
-        <slot />
-      </Splash>
-    </template>
-   </MainContent>
+      <template #content>
+        <Splash :loading="loading">
+          <slot />
+        </Splash>
+      </template>
+    </MainContent>
   </div>
 </template>

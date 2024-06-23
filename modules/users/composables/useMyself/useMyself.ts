@@ -1,15 +1,17 @@
-import { useSession } from "@/modules/auth/composables/useSession/useSession";
-import type { User } from "@/modules/users/entities/User/User";
-import type { MyselfContextProvider } from "./types";
-import type { InjectionKey } from "vue";
+import type { InjectionKey } from 'vue'
 
-export const myselfKey = Symbol("myself") as InjectionKey<MyselfContextProvider>
+import { useSession } from '@/modules/auth/composables/useSession/useSession'
+import type { User } from '@/modules/users/entities/User/User'
+
+import type { MyselfContextProvider } from './types'
+
+export const myselfKey = Symbol('myself') as InjectionKey<MyselfContextProvider>
 
 export function useMyself() {
   const { logAndTrace } = useLogger()
   const services = useServices()
   const session = useSession()
-  const loading:Ref<boolean> = ref(true)
+  const loading: Ref<boolean> = ref(true)
   const user = ref<User>()
 
   provide<MyselfContextProvider>(myselfKey, { user, loading })
@@ -18,7 +20,7 @@ export function useMyself() {
     try {
       const response = await services.users.getMyself(session.user.value?.id!)
 
-      if(!response) {
+      if (!response) {
         return null
       }
 
@@ -34,6 +36,6 @@ export function useMyself() {
 
   return {
     loading,
-    user
+    user,
   }
 }

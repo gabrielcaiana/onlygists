@@ -1,19 +1,23 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
-  loading: boolean
-  amount?: number
-}>(), {
-  loading: false,
-  amount: 4
-})
+withDefaults(
+  defineProps<{
+    loading: boolean
+    amount?: number
+  }>(),
+  {
+    loading: false,
+    amount: 4,
+  },
+)
 </script>
 
 <template>
   <template v-if="loading">
-    <div 
+    <div
       v-for="loader in amount"
       :key="`loader-${loader}`"
-      class="flex flex-col justify-center gap-2 bg-white rounded w-full p-5">
+      class="flex flex-col justify-center gap-2 bg-white rounded w-full p-5"
+    >
       <Skeleton width="5rem" height="3rem" />
       <Skeleton width="100%" height="2rem" />
     </div>

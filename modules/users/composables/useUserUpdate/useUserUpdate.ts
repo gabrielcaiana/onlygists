@@ -1,5 +1,6 @@
-import { z } from 'zod'
 import type { ZodFormattedError } from 'zod'
+import { z } from 'zod'
+
 import type { User } from '@/modules/users/entities/User/User'
 
 const schema = z.object({
@@ -11,7 +12,7 @@ const schema = z.object({
 })
 
 interface UseUserUpdateOptions {
-  user: Ref<User | undefined> 
+  user: Ref<User | undefined>
 }
 
 export function useUserUpdate({ user: userRef }: UseUserUpdateOptions) {
@@ -25,7 +26,7 @@ export function useUserUpdate({ user: userRef }: UseUserUpdateOptions) {
   const safeParse = () => {
     const result = schema.safeParse(user.value)
 
-    if(!result.success) {
+    if (!result.success) {
       errors.value = result.error.format()
     }
 
@@ -33,21 +34,20 @@ export function useUserUpdate({ user: userRef }: UseUserUpdateOptions) {
   }
 
   const update = async () => {
-    if(!user.value) return
+    if (!user.value) return
 
     loading.value = true
     try {
       await services.users.update(user.value.id, {
-        ...user.value
+        ...user.value,
       })
 
       toast.add({
         severity: 'success',
         summary: 'Sucesso',
         detail: 'Perfil atualizado com sucesso',
-        life: 3000
+        life: 3000,
       })
-
     } catch (error) {
       logAndTrace(error)
     } finally {
@@ -56,7 +56,7 @@ export function useUserUpdate({ user: userRef }: UseUserUpdateOptions) {
   }
 
   watchEffect(() => {
-    if(!userRef.value) return
+    if (!userRef.value) return
 
     user.value = userRef.value
   })
@@ -66,6 +66,6 @@ export function useUserUpdate({ user: userRef }: UseUserUpdateOptions) {
     loading,
     errors,
     safeParse,
-    update
+    update,
   }
 }

@@ -5,11 +5,9 @@ defineProps<{
 </script>
 
 <template>
-  <div class="w-full h-full flex items-center justify-center" v-if="loading">
-      <span class="animate-pulse text-6xl">🤩</span>
+  <div v-if="loading" class="w-full h-full flex items-center justify-center">
+    <span class="animate-pulse text-6xl">🤩</span>
   </div>
 
   <slot v-else />
 </template>
-
-

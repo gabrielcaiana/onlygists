@@ -1,5 +1,5 @@
-import type { User } from '@/modules/users/entities/User/User'
 import type { Address } from '@/modules/users/entities/Address/Address'
+import type { User } from '@/modules/users/entities/User/User'
 
 interface UseAddressUpdateOptions {
   user: Ref<User | undefined>

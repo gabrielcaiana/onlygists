@@ -1,9 +1,11 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { Database } from "~/libs/supabase/schema"
-import { getMyselfAdapter, searchAddressByZipCodeAdapter } from './adapters'
 import type { AxiosInstance } from 'axios'
-import type { SearchAddressResponse } from './types'
+
 import type { User } from '@/modules/users/entities/User/User'
+import type { Database } from '~/libs/supabase/schema'
+
+import { getMyselfAdapter, searchAddressByZipCodeAdapter } from './adapters'
+import type { SearchAddressResponse } from './types'
 
 export default (client: SupabaseClient<Database>, httpClient: AxiosInstance) => ({
   async searchAddressByZipCode(zipCode: string) {
@@ -42,5 +44,5 @@ export default (client: SupabaseClient<Database>, httpClient: AxiosInstance) => 
       .eq('id', id)
 
     return { id }
-  }
+  },
 })

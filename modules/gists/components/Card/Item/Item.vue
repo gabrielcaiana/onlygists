@@ -5,19 +5,22 @@ const emit = defineEmits<{
   (e: 'tap', id: string): void
 }>()
 
-const props = withDefaults(defineProps<{
-  id: string
-  title: string
-  description: string
-  price: number
-  lang: string
-}>(), {
-  id: '123',
-  title: 'useCurrentUser.ts',
-  description: 'Hook para controlar o **usuário** logado',
-  price: 10,
-  lang: 'Typescript'
-})
+const props = withDefaults(
+  defineProps<{
+    id: string
+    title: string
+    description: string
+    price: number
+    lang: string
+  }>(),
+  {
+    id: '123',
+    title: 'useCurrentUser.ts',
+    description: 'Hook para controlar o **usuário** logado',
+    price: 10,
+    lang: 'Typescript',
+  },
+)
 
 const isFree = computed(() => props.price === 0)
 const description = computed(() => render(props.description))
@@ -39,7 +42,7 @@ const handleClick = () => emit('tap', props.id)
         <div v-html="description"></div>
       </template>
       <template #footer>
-        <Button 
+        <Button
           v-if="isFree"
           label="Baixar gratuitamente"
           class="w-full"
@@ -47,7 +50,7 @@ const handleClick = () => emit('tap', props.id)
           icon-pos="right"
           @click="handleClick"
         />
-        <Button 
+        <Button
           v-else
           :label="`Comprar por ${amount}`"
           class="w-full"

@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import '@wooorm/starry-night/style/light'
+
 import { common, createStarryNight } from '@wooorm/starry-night'
 import { toHtml } from 'hast-util-to-html'
-import '@wooorm/starry-night/style/light'
+
 import Loader from './Loader.vue'
 
 const DEFAULT_CODE_SNIPPET = `
@@ -57,6 +59,6 @@ onMounted(() => {
       />
     </div>
 
-    <pre v-if="!isPaid" v-html="htmlCode" class="w-full rounded bg-gray-200 p-5 overflow-x-scroll" />
+    <pre v-if="!isPaid" class="w-full rounded bg-gray-200 p-5 overflow-x-scroll" v-html="htmlCode" />
   </Loader>
 </template>
