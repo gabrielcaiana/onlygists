@@ -39,5 +39,12 @@ const handleCreateGist = async () => {
     </ClientOnly>
   </WidgeDefault>
 
-  <Button :loading="loadingCreate" label="Criar" icon="pi pi-plus" icon-pos="right" @click="handleCreateGist" />
+  <Button
+    :loading="loadingCreate"
+    label="Criar"
+    icon="pi pi-plus"
+    icon-pos="right"
+    class="mt-10"
+    @click="handleCreateGist"
+  />
 </template>

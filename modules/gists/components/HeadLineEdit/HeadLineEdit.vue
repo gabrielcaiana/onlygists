@@ -56,7 +56,7 @@ const priceOptions = [
       <div class="flex flex-col gap-2 flex-1">
         <label for="gist-title">Título</label>
         <InputText id="gist-title" v-model="headline.title" type="text" placeholder="useCurrentUser.ts" />
-        <small v-if="props.errors?.title">{{ props.errors?.title._errors[0] }}</small>
+        <small v-if="props.errors?.title" class="text-red-500">{{ props.errors?.title._errors[0] }}</small>
       </div>
 
       {{ headline.price }}
@@ -77,7 +77,7 @@ const priceOptions = [
         placeholder="useCurrentUser() é um hook que você consegue..."
       />
       <small class="text-gray-600">Markdown é suportado.</small>
-      <small v-if="props.errors?.description">{{ props.errors?.description._errors[0] }}</small>
+      <small v-if="props.errors?.description" class="text-red-500">{{ props.errors?.description._errors[0] }}</small>
     </div>
   </div>
 </template>

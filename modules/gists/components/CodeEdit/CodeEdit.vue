@@ -55,6 +55,6 @@ const MONACO_EDITOR_OPTIONS = {
       :default-language="code.lang"
       :language="code.lang"
     />
-    <small v-if="props.errors?.content">{{ props.errors?.content._errors[0] }}</small>
+    <small v-if="props.errors?.content" class="text-red-500">{{ props.errors?.content._errors[0] }}</small>
   </div>
 </template>
