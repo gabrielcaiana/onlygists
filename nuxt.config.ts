@@ -1,4 +1,4 @@
-import path from 'node:path'
+// import path from 'node:path'
 
 export default defineNuxtConfig({
   devtools: {
@@ -20,10 +20,13 @@ export default defineNuxtConfig({
   },
   primevue: {
     options: { unstyled: true },
-    importPT: {
-      as: 'lara',
-      from: path.resolve(__dirname, './assets/presets/lara/'),
-    },
+    importPT: { as: 'Lara', from: './assets/presets/lara/' },
+
+    // not work in Windows
+    // importPT: {
+    //   as: 'lara',
+    //   from: path.resolve(__dirname, './assets/presets/lara/'),
+    // },
   },
   supabase: {
     redirect: false,
