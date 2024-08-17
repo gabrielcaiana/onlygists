@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useSession } from '@/modules/auth/composables/useSession/useSession'
 import GistCodeSpippet from '@/modules/gists/components/GistCodeSpippet/GistCodeSpippet.vue'
+import PublicHeadlineEmpty from '@/modules/gists/components/PublicHeadline/Empty.vue'
 import PublicHeadlineLoader from '@/modules/gists/components/PublicHeadline/Loader.vue'
 import PublicHeadline from '@/modules/gists/components/PublicHeadline/PublicHeadline.vue'
 import LazyDialogPaymentError from '@/modules/payments/components/DialogPaymentError/DialogPaymentError.vue'
@@ -8,16 +9,24 @@ import LazyDialogPaymentSuccess from '@/modules/payments/components/DialogPaymen
 import type { MyselfContextProvider } from '@/modules/users/composables/useMyself/types'
 import { myselfKey } from '@/modules/users/composables/useMyself/useMyself'
 
-const { user, loading } = inject(myselfKey) as MyselfContextProvider
+const { user } = inject(myselfKey) as MyselfContextProvider
 
 const route = useRoute()
 const router = useRouter()
+const services = useServices()
+
 const isPaymentSuccessfully: Ref<boolean> = ref(false)
 const isPaymentFail: Ref<boolean> = ref(false)
+const gistId = ref(route.params.id as string)
 
 const hasOwner = computed(() => user.value?.username === route.params.username)
 
-const handleNavigateToGistEdit = () => router.push(`/app/gist/${route.params.id}/edit`)
+const handleNavigateToGistEdit = () => router.push(`/app/gist/${gistId}/edit`)
+
+// to show loading in client change to useLazyAsyncData
+const { data: gist, pending: loading } = useAsyncData('gist-detail', () => {
+  return services.gists.readOne(gistId.value)
+})
 
 onMounted(() => {
   const { success_payment, fail_payment } = route.query
@@ -35,11 +44,18 @@ onMounted(() => {
 <template>
   <div>
     <PublicHeadlineLoader :loading="loading">
-      <PublicHeadline />
+      <PublicHeadline
+        v-if="gist"
+        :title="gist?.title"
+        :lang="gist?.lang"
+        :description="gist?.description"
+        :author="gist?.profiles.username"
+      />
+      <PublicHeadlineEmpty v-else />
     </PublicHeadlineLoader>
-    <GistCodeSpippet />
+    <GistCodeSpippet v-if="gist" />
 
-    <div class="flex flex-col md:flex-row gap-2">
+    <div v-if="gist" class="flex flex-col md:flex-row gap-2">
       <Button
         v-if="!hasOwner"
         label="Comprar por 10"
