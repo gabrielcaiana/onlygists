@@ -4,6 +4,7 @@ import GistCodeSpippet from '@/modules/gists/components/GistCodeSpippet/GistCode
 import PublicHeadlineEmpty from '@/modules/gists/components/PublicHeadline/Empty.vue'
 import PublicHeadlineLoader from '@/modules/gists/components/PublicHeadline/Loader.vue'
 import PublicHeadline from '@/modules/gists/components/PublicHeadline/PublicHeadline.vue'
+import { useGistContent } from '@/modules/gists/composables/useGistContent/useGistContent'
 import LazyDialogPaymentError from '@/modules/payments/components/DialogPaymentError/DialogPaymentError.vue'
 import LazyDialogPaymentSuccess from '@/modules/payments/components/DialogPaymentSuccess/DialogPaymentSuccess.vue'
 import type { MyselfContextProvider } from '@/modules/users/composables/useMyself/types'
@@ -26,6 +27,10 @@ const handleNavigateToGistEdit = () => router.push(`/app/gist/${gistId}/edit`)
 // to show loading in client change to useLazyAsyncData
 const { data: gist, pending: loading } = useAsyncData('gist-detail', () => {
   return services.gists.readOne(gistId.value)
+})
+
+const { gistContent, loading: loadingContent } = useGistContent({
+  gist,
 })
 
 onMounted(() => {
@@ -53,7 +58,13 @@ onMounted(() => {
       />
       <PublicHeadlineEmpty v-else />
     </PublicHeadlineLoader>
-    <GistCodeSpippet v-if="gist" />
+    <GistCodeSpippet
+      v-if="gist"
+      :loading="loadingContent"
+      :code="gistContent"
+      :lang="gist.lang"
+      :is-paid="gist.isPaid"
+    />
 
     <div v-if="gist" class="flex flex-col md:flex-row gap-2">
       <Button

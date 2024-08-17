@@ -41,15 +41,13 @@ const registerSintaxeHighlight = async () => {
   isLoading.value = false
 }
 
-onMounted(() => {
-  registerSintaxeHighlight()
-})
+watch(() => props.code, registerSintaxeHighlight, { immediate: true })
 </script>
 <template>
   <Loader :loading="isLoading || loading">
     <div v-if="isPaid" class="w-full relative">
-      <span class="absolute top-[43%] left-[5o%] z-[999]">
-        <i class="pi pi-lock text-3xl text-gray-700" />
+      <span class="absolute top-[43%] left-[50%] z-[999]">
+        <i class="pi pi-lock text-3xl text-gray-700"></i>
       </span>
 
       <pre
@@ -59,6 +57,6 @@ onMounted(() => {
       />
     </div>
 
-    <pre v-if="!isPaid" class="w-full rounded bg-gray-200 p-5 overflow-x-scroll" v-html="htmlCode" />
+    <pre v-if="!isPaid" class="w-full rounded bg-gray-200 p-5 overflow-x-hidden" v-html="htmlCode" />
   </Loader>
 </template>
