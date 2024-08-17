@@ -1,0 +1,29 @@
+import type { Database } from '@/libs/supabase/schema'
+import type { GistVirtual } from '@/modules/gists/entities/Gist/Gist'
+
+type ProfileTable = Database['public']['Tables']['profiles']
+type GistTable = Database['public']['Tables']['gists']
+
+export type ReadOneRow = GistTable['Row'] & {
+  profiles: ProfileTable['Row'] | null
+}
+
+export function readOneAdapter(data: ReadOneRow | null): GistVirtual | null {
+  if (!data) return null
+
+  return {
+    id: data.id,
+    title: data.title,
+    profileId: data.profile_id ?? '',
+    description: data.description,
+    isPaid: data.is_paid,
+    price: data.price,
+    profiles: {
+      id: data.profiles?.id,
+      username: data.profiles?.username,
+    },
+    lang: data.lang,
+    content: data.content,
+    createdAt: new Date(data.created_at),
+  }
+}

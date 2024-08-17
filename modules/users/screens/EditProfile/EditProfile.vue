@@ -46,8 +46,8 @@ const handleShare = (username: string) => {
   share(username)
 }
 
-const handleNavigateToProfile = (username: string) => {
-  router.push(`/${username}`)
+const handleNavigateToProfile = () => {
+  router.push(`/${user.value?.username}`)
 }
 
 const handleZipcodeSearch = () => searchZipCode()
