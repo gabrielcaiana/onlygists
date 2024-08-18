@@ -7,6 +7,7 @@ export interface User {
   name: string
   site?: string
   bio?: string
+  email?: string
   phone?: string
   address?: Address
   createdAt: Date
