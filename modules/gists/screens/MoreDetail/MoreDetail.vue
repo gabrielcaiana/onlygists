@@ -22,7 +22,7 @@ const gistId = ref(route.params.id as string)
 
 const hasOwner = computed(() => user.value?.username === route.params.username)
 
-const handleNavigateToGistEdit = () => router.push(`/app/gist/${gistId}/edit`)
+const handleNavigateToGistEdit = () => router.push(`/app/gist/${gistId.value}/edit`)
 
 // to show loading in client change to useLazyAsyncData
 const { data: gist, pending: loading } = useAsyncData('gist-detail', () => {
