@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useGistDelete } from '@/modules/gists//composables/useGistDelete/useGistDelete'
 import { useGistUpdate } from '@/modules/gists//composables/useGistUpdate/useGistUpdate'
 import CodeEdit from '@/modules/gists/components/CodeEdit/CodeEdit.vue'
 import HeadLineEdit from '@/modules/gists/components/HeadLineEdit/HeadLineEdit.vue'
@@ -13,9 +14,13 @@ const route = useRoute()
 
 const gistId = ref(route.params.id as string)
 
-const { gist, loading } = useGist({ id: gistId.value })
+const { gist } = useGist({ id: gistId.value })
+
+const { remove, loading: laodingRemove } = useGistDelete({ gist })
 
 const { loading: loadingUpdate, headline, code, safeParse, update, errors } = useGistUpdate({ gist })
+
+const confirm = useConfirm()
 
 const handleLanguageChange = (lang: string) => {
   code.value.lang = lang
@@ -32,9 +37,29 @@ const handleUpdateGist = async () => {
     router.push(`/${user.value?.username}/gist/${response.id}`)
   }
 }
+
+const handleDeleteGist = () => {
+  confirm.require({
+    group: 'delete-gist',
+    position: 'bottom',
+    header: 'Deletar gist',
+    message: 'Você tem certeza que deseja deletar esse gist?',
+    rejectLabel: 'Cancelar',
+    acceptLabel: 'Quero deletar',
+    accept: async () => {
+      const response = await remove()
+
+      if (response?.id) {
+        router.push(`/${user.value?.username}`)
+      }
+    },
+  })
+}
 </script>
 
 <template>
+  <ConfirmDialog group="delete-gist" />
+
   <WidgetDefault title="Editar gist" class="my-5">
     <HeadLineEdit v-model="headline" :errors="errors" @language-change="handleLanguageChange" />
   </WidgetDefault>
@@ -45,12 +70,16 @@ const handleUpdateGist = async () => {
     </ClientOnly>
   </WidgeDefault>
 
-  <Button
-    :loading="loadingUpdate"
-    label="Atualizar"
-    icon="pi pi-plus"
-    icon-pos="right"
-    class="mt-10"
-    @click="handleUpdateGist"
-  />
+  <div class="flex gap-2">
+    <Button
+      :loading="loadingUpdate"
+      label="Atualizar"
+      icon="pi pi-plus"
+      icon-pos="right"
+      class="mt-10"
+      @click="handleUpdateGist"
+    />
+
+    <Button :loading="laodingRemove" label="Deletar" class="mt-10" severity="danger" @click="handleDeleteGist" />
+  </div>
 </template>
