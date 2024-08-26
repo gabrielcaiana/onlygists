@@ -3,10 +3,35 @@ import { v4 as uuidV4 } from 'uuid'
 
 import type { Database } from '@/libs/supabase/schema.js'
 
-import { readOneAdapter, type ReadOneRow } from './adapters'
-import type { CreateOptions, UpdateOptions } from './types'
+import { readAllAdapter, type ReadAllRow, readOneAdapter, type ReadOneRow } from './adapters'
+import type { CreateOptions, ReadAllOptions, UpdateOptions } from './types'
 
 export default (client: SupabaseClient<Database>) => ({
+  async readAll({ username, from = 0, to = 10 }: ReadAllOptions) {
+    const [totalResponse, gistsResponse] = await Promise.all([
+      client
+        .from('gists')
+        .select('profiles!inner(id, username)', {
+          count: 'exact',
+          head: true,
+        })
+        .eq('profiles.username', username),
+
+      client
+        .from('gists')
+        .select('id, title, description, is_paid, price, lang, created_at, profiles!inner(id, username)')
+        .eq('profiles.username', username)
+        .order('created_at', { ascending: true })
+        .range(from, to)
+        .returns<ReadAllRow[]>(),
+    ])
+
+    return {
+      total: totalResponse.count ?? 0,
+      results: readAllAdapter(gistsResponse.data),
+    }
+  },
+
   async create({ title, description, price, content, lang, profileId }: CreateOptions) {
     const id = uuidV4()
     const isPaid = price !== 0
