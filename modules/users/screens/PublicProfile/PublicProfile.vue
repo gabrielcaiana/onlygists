@@ -5,6 +5,7 @@ import GistCardItem from '@/modules/gists/components/Card/Item/Item.vue'
 import WidgeCondensed from '@/modules/reports/components/Widget/Condensed/Condensed.vue'
 import WidgetGroup from '@/modules/reports/components/Widget/Group/Group.vue'
 import WidgetGroupLoader from '@/modules/reports/components/Widget/Group/Loader.vue'
+import { useGistsReport } from '@/modules/reports/composables/useGistsReport/useGistsReport'
 import PublicHeadlineEmpty from '@/modules/users/components/PublicHeadline/Empty.vue'
 import PublicHeadline from '@/modules/users/components/PublicHeadline/PublicHeadline.vue'
 
@@ -15,6 +16,11 @@ const services = useServices()
 const { data: user } = await useAsyncData('user-public-profile', () => {
   const username = route.params.username as string
   return services.users.readOneByUsername(username)
+})
+
+const { totalGists, totalFreeGists, totalPaidGists, totalSoldGists, loading } = useGistsReport({
+  user,
+  isMyself: false,
 })
 
 const handleNavigateToDetail = (id: string) => {
@@ -44,10 +50,10 @@ useSeoMeta({
   <PublicHeadlineEmpty v-else />
 
   <WidgetGroup>
-    <WidgetGroupLoader :loading="false" :amount="3">
-      <WidgeCondensed :value="10" label="Gists do total" />
-      <WidgeCondensed :value="5" label="Gists gratuitos" />
-      <WidgeCondensed :value="5" label="Gists pagos" />
+    <WidgetGroupLoader :loading="loading" :amount="3">
+      <WidgeCondensed :value="totalGists" label="Gists do total" />
+      <WidgeCondensed :value="totalFreeGists" label="Gists gratuitos" />
+      <WidgeCondensed :value="totalPaidGists" label="Gists pagos" />
     </WidgetGroupLoader>
   </WidgetGroup>
 
