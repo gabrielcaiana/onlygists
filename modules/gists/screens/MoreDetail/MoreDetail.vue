@@ -44,6 +44,21 @@ onMounted(() => {
     isPaymentFail.value = true
   }
 })
+
+defineOgImage({
+  component: 'GistDetail',
+  props: {
+    title: () => `${gist.value?.title} by @${gist.value?.profiles.username}`,
+    description: () => `Veja o gist de ${gist.value?.profiles.username} no onlygists`,
+  },
+})
+
+useSeoMeta({
+  title: () => `${gist.value?.title} by @${gist.value?.profiles.username}`,
+  ogTitle: () => `${gist.value?.title} by @${gist.value?.profiles.username}`,
+  description: () => `Veja o gist de ${gist.value?.profiles.username} no onlygists`,
+  ogDescription: () => `Veja o gist de ${gist.value?.profiles.username} no onlygists`,
+})
 </script>
 
 <template>
