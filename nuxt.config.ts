@@ -7,6 +7,7 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+
   modules: [
     'nuxt-primevue',
     '@nuxtjs/tailwindcss',
@@ -14,8 +15,11 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxtjs/seo',
   ],
+
   css: ['primeicons/primeicons.css'],
+
   googleFonts: {
     base64: true,
     fontsDir: 'assets/fonts',
@@ -24,6 +28,7 @@ export default defineNuxtConfig({
       Inter: [300, 500, 800],
     },
   },
+
   primevue: {
     options: { unstyled: true },
     importPT: { as: 'Lara', from: './assets/presets/lara/' },
@@ -34,12 +39,23 @@ export default defineNuxtConfig({
     //   from: path.resolve(__dirname, './assets/presets/lara/'),
     // },
   },
+
   supabase: {
     redirect: false,
   },
+
+  ogImage: {
+    fonts: ['Inter:400', 'Inter:700'],
+  },
+
+  site: {
+    url: process.env.SITE_URL,
+  },
+
   imports: {
     dirs: ['./composables/useMarkdown', './composables/useServices', './composables/useLogger'],
   },
+
   runtimeConfig: {
     public: {
       nodeEnv: process.env.NODE_ENV,
@@ -48,4 +64,6 @@ export default defineNuxtConfig({
       siteUrl: process.env.SITE_URL,
     },
   },
+
+  compatibilityDate: '2024-09-01',
 })
