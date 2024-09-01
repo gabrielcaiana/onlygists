@@ -12,5 +12,6 @@ module.exports = {
     'no-throw-literal': 'off',
     'vue/no-v-html': 'off',
     camelcase: 'off',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
   },
 }
