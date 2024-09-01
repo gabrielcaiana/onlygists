@@ -4,7 +4,6 @@ import { useScroll } from '@vueuse/core'
 import GistCardGroup from '@/modules/gists/components/Card/Group/Group.vue'
 import GistCardGroupLoader from '@/modules/gists/components/Card/Group/Loader.vue'
 import GistCardItem from '@/modules/gists/components/Card/Item/Item.vue'
-import GistLoadMore from '@/modules/gists/components/LoadMore/LoadMore.vue'
 import { useGistList } from '@/modules/gists/composables/useGistList/useGistList'
 import WidgetCondensed from '@/modules/reports/components/Widget/Condensed/Condensed.vue'
 import WidgetGroup from '@/modules/reports/components/Widget/Group/Group.vue'
@@ -78,6 +77,5 @@ const handleNavigateToDetail = (id: string) => {
         />
       </GistCardGroupLoader>
     </GistCardGroup>
-    <GistLoadMore @load-more="fetchMoreGistsByUsername" />
   </WidgetDefault>
 </template>
