@@ -3,12 +3,18 @@
 export default defineNuxtConfig({
   devtools: {
     enabled: true,
-
     timeline: {
       enabled: true,
     },
   },
-  modules: ['nuxt-primevue', '@nuxtjs/tailwindcss', '@nuxtjs/google-fonts', '@nuxtjs/supabase', '@vueuse/nuxt'],
+  modules: [
+    'nuxt-primevue',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/supabase',
+    '@vueuse/nuxt',
+    '@nuxtjs/color-mode',
+  ],
   css: ['primeicons/primeicons.css'],
   googleFonts: {
     base64: true,
