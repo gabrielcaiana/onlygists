@@ -47,8 +47,7 @@ watch(
 )
 
 const handleNavigateToDetail = (id: string) => {
-  const { username } = route.params
-  router.push(`/${username}/gist/${id}`)
+  router.push(`/${user.value?.username}/gist/${id}`)
 }
 </script>
 
