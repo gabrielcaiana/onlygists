@@ -6,25 +6,25 @@ interface AuthContext {
 }
 
 export default defineEventHandler(async (event) => {
-  const url = getRequestURL(event)
-  const user = await serverSupabaseUser(event)
+  // const url = getRequestURL(event)
+  // const user = await serverSupabaseUser(event)
 
-  const isWebhookCall = url.pathname.startsWith('/webhooks')
+  // const isWebhookCall = url.pathname.startsWith('/webhooks')
 
-  if(isWebhookCall) {
-    return
-  }
+  // if(isWebhookCall) {
+  //   return
+  // }
 
-  const isApiCall = url.pathname.startsWith('/api')
+  // const isApiCall = url.pathname.startsWith('/api')
 
-  if(!isApiCall) {
-    return
-  }
+  // if(!isApiCall) {
+  //   return
+  // }
 
-  const authContext: AuthContext = {
-    user,
-    isAuthenticated: Boolean(user)
-  }
+  // const authContext: AuthContext = {
+  //   user,
+  //   isAuthenticated: Boolean(user)
+  // }
 
-  event.context.auth = authContext
+  // event.context.auth = authContext
 })
