@@ -6,25 +6,32 @@ interface AuthContext {
 }
 
 export default defineEventHandler(async (event) => {
-  // const url = getRequestURL(event)
-  // const user = await serverSupabaseUser(event)
+  const url = getRequestURL(event)
 
-  // const isWebhookCall = url.pathname.startsWith('/webhooks')
+  const isWebhookCall = url.pathname.startsWith('/webhooks')
 
-  // if(isWebhookCall) {
-  //   return
-  // }
+  if(isWebhookCall) {
+    return
+  }
 
-  // const isApiCall = url.pathname.startsWith('/api')
+  const isApiCall = url.pathname.startsWith('/api')
 
-  // if(!isApiCall) {
-  //   return
-  // }
+  if(!isApiCall) {
+    return
+  }
 
-  // const authContext: AuthContext = {
-  //   user,
-  //   isAuthenticated: Boolean(user)
-  // }
+  let user = null
 
-  // event.context.auth = authContext
+  try {
+    user = await serverSupabaseUser(event)
+  } catch (error) {
+    console.warn("Auth session missing!", error)
+  }
+
+  const authContext: AuthContext = {
+    user,
+    isAuthenticated: Boolean(user)
+  }
+
+  event.context.auth = authContext
 })
