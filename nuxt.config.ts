@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/seo',
+    '@unlok-co/nuxt-stripe',
   ],
 
   css: ['primeicons/primeicons.css'],
@@ -54,6 +55,15 @@ export default defineNuxtConfig({
 
   imports: {
     dirs: ['./composables/useMarkdown', './composables/useServices', './composables/useLogger'],
+  },
+
+  stripe: { 
+    client: {
+      key: process.env.STRIPE_CLIENT_KEY,
+    },
+    server: {
+      key: process.env.STRIPE_SECRET_KEY
+    }
   },
 
   runtimeConfig: {
