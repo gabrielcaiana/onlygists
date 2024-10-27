@@ -1,14 +1,15 @@
 export function useLogger() {
   const config = useRuntimeConfig()
   const isProd = config.public.nodeEnv === 'production'
+  const { $consola  } = useNuxtApp()
 
   const logAndTrace = (...args: any[]) => {
     if (isProd) {
       // TODO: send to sentry
       return
     }
-
-    console.log(...args)
+    
+    $consola.log({ args })
   }
 
   return {
