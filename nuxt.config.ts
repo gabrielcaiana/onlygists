@@ -7,6 +7,10 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+  
+  dir: {
+    app: 'app',
+  },
 
   modules: [
     'nuxt-primevue',
@@ -73,6 +77,10 @@ export default defineNuxtConfig({
       supabaseKey: process.env.SUPABASE_KEY,
       siteUrl: process.env.SITE_URL,
     },
+  },
+
+  future: {
+    compatibilityVersion: 4,
   },
 
   compatibilityDate: '2024-09-01',
