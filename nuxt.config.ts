@@ -71,6 +71,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    stripeProductId5BRL: process.env.STRIPE_PRODUCT_ID_5BRL,
+    stripeProductId10BRL: process.env.STRIPE_PRODUCT_ID_10BRL,
+    stripeProductId25BRL: process.env.STRIPE_PRODUCT_ID_25BRL,
     public: {
       nodeEnv: process.env.NODE_ENV,
       supabaseUrl: process.env.SUPABASE_URL,

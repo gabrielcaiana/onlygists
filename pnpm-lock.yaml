@@ -38,6 +38,9 @@ dependencies:
   detect-programming-language:
     specifier: ^1.0.4
     version: 1.0.4
+  h3-zod:
+    specifier: ^0.5.3
+    version: 0.5.3(h3@1.13.0)(zod@3.23.0)
   hast-util-to-html:
     specifier: ^9.0.3
     version: 9.0.3
@@ -5847,6 +5850,16 @@ packages:
       h3: ^1.6.0
     dependencies:
       h3: 1.13.0
+    dev: false
+
+  /h3-zod@0.5.3(h3@1.13.0)(zod@3.23.0):
+    resolution: {integrity: sha512-wqlRd/d5d9sNYxmNglnL63J4v5HiZZrcXdLIiU2cBsy5gTwxrSH1AqtNrVkuUleshgNOAQldbuO06phdUIxuKA==}
+    peerDependencies:
+      h3: ^1.6.0
+      zod: ^3.21.0
+    dependencies:
+      h3: 1.13.0
+      zod: 3.23.0
     dev: false
 
   /h3@1.13.0:
