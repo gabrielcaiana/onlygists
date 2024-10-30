@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
     business_type: 'individual',
   })
 
-  supabase
+  await supabase
     .from('profiles')
     .update({
       payment_connected_account: account.id,
