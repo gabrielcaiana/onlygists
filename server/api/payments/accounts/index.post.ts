@@ -1,6 +1,6 @@
-import { useServerStripe } from "#stripe/server";
-import { serverSupabaseClient } from "#supabase/server";
-import { Database } from "@/libs/supabase/schema";
+import { useServerStripe } from '#stripe/server'
+import { serverSupabaseClient } from '#supabase/server'
+import { Database } from '@/libs/supabase/schema'
 
 interface RequestOptions {
   email: string
@@ -9,19 +9,17 @@ interface RequestOptions {
 export default defineEventHandler(async (event) => {
   const payment = await readBody<RequestOptions>(event)
 
-  console.log(payment)
-
-  if(!payment.email) {
+  if (!payment.email) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Email is required'
+      statusMessage: 'Email is required',
     })
   }
 
-  if(!event.context.auth.isAuthenticated) {
+  if (!event.context.auth.isAuthenticated) {
     throw createError({
       statusCode: 401,
-      statusMessage: 'Unauthorized'
+      statusMessage: 'Unauthorized',
     })
   }
 
@@ -36,20 +34,22 @@ export default defineEventHandler(async (event) => {
     business_type: 'individual',
   })
 
-  supabase.from('profiles').update({
-    payment_connected_account: account.id
-  }).eq('email', payment.email)
+  supabase
+    .from('profiles')
+    .update({
+      payment_connected_account: account.id,
+    })
+    .eq('email', payment.email)
 
   const accountLink = await stripe.accountLinks.create({
     account: account.id,
     refresh_url: `${config.public.siteUrl}/app/panel`,
     return_url: `${config.public.siteUrl}/app/panel`,
-    type: 'account_onboarding'
+    type: 'account_onboarding',
   })
 
   return {
     accountId: account.id,
-    onboardingUrl: accountLink.url
+    onboardingUrl: accountLink.url,
   }
 })
-

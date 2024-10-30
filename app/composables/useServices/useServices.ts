@@ -10,7 +10,9 @@ import type { Database } from '~/libs/supabase/schema'
 export function useServices() {
   const config = useRuntimeConfig()
   const supabaseClient = useSupabaseClient<Database>()
-  const httpClient = axios.create({})
+  const httpClient = axios.create({
+    baseURL: '/api'
+  })
 
   return {
     auth: AuthService(supabaseClient, {
