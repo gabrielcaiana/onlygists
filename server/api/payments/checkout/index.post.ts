@@ -32,10 +32,8 @@ export default defineEventHandler(async (event) => {
     '10': config.stripeProductId10BRL,
     '25': config.stripeProductId25BRL,
   }
-
-  const allowedGistPrices = Object.keys(price)
-
-  if(!allowedGistPrices.includes(price)) {
+  
+  if(!prices[price]) {
     throw createError({
       status: 400,
       statusMessage: `try pay ${username} but gist price is not valid: ${price}`

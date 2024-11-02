@@ -11,13 +11,13 @@ export function useServices() {
   const config = useRuntimeConfig()
   const supabaseClient = useSupabaseClient<Database>()
   const httpClient = axios.create({
-    baseURL: '/api'
+    baseURL: '/api',
   })
 
+  const redirectGithub = `${config.public.siteUrl}/auth/github`
+
   return {
-    auth: AuthService(supabaseClient, {
-      redirectTo: `${config.public.siteUrl}/auth/github`,
-    }),
+    auth: AuthService(supabaseClient, { redirectTo: redirectGithub }),
     users: UserService(supabaseClient, httpClient),
     gists: GistService(supabaseClient),
     reports: ReportService(supabaseClient),

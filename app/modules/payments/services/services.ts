@@ -24,7 +24,7 @@ export default (client: SupabaseClient<Database>, httpClient: AxiosInstance) => 
   },
 
   async createCheckout({ username, gistId, price }: CreateCheckoutOptions) {
-    const response = await httpClient.post<CreateCheckoutResponse>(`/checkout`, {
+    const response = await httpClient.post<CreateCheckoutResponse>(`/payments/checkout`, {
       username,
       gistId,
       price,

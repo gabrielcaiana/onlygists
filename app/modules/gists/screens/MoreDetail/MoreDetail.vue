@@ -5,6 +5,7 @@ import PublicHeadlineEmpty from '@/modules/gists/components/PublicHeadline/Empty
 import PublicHeadlineLoader from '@/modules/gists/components/PublicHeadline/Loader.vue'
 import PublicHeadline from '@/modules/gists/components/PublicHeadline/PublicHeadline.vue'
 import { useGistContent } from '@/modules/gists/composables/useGistContent/useGistContent'
+import { useStripeCheckout } from '@/modules/payments/composables/useStripeCheckout/useStripeCheckout'
 import LazyDialogPaymentError from '@/modules/payments/components/DialogPaymentError/DialogPaymentError.vue'
 import LazyDialogPaymentSuccess from '@/modules/payments/components/DialogPaymentSuccess/DialogPaymentSuccess.vue'
 import type { MyselfContextProvider } from '@/modules/users/composables/useMyself/types'
@@ -32,6 +33,22 @@ const { data: gist, pending: loading } = useAsyncData('gist-detail', () => {
 const { gistContent, loading: loadingContent } = useGistContent({
   gist,
 })
+
+const { checkoutUrl, createCheckoutUrl } = useStripeCheckout()
+
+const handlePay = async () => {
+  await createCheckoutUrl({
+    username: route.params.username as string,
+    gistId: route.params.id as string,
+    price: String(gist.value?.price) // FIXME: need get price in backend in refactor,
+  })
+
+  if(!checkoutUrl.value) {
+    return
+  }
+
+  navigateTo(checkoutUrl.value, { external: true })
+}
 
 onMounted(() => {
   const { success_payment, fail_payment } = route.query
@@ -69,14 +86,14 @@ useSeoMeta({
         :title="gist?.title"
         :lang="gist?.lang"
         :description="gist?.description"
-        :author="gist?.profiles.username"
+        :author="gist?.profiles.username!"
       />
       <PublicHeadlineEmpty v-else />
     </PublicHeadlineLoader>
     <GistCodeSpippet
       v-if="gist"
       :loading="loadingContent"
-      :code="gistContent"
+      :code="gistContent!"
       :lang="gist.lang"
       :is-paid="gist.isPaid"
     />
@@ -84,10 +101,11 @@ useSeoMeta({
     <div v-if="gist" class="flex flex-col md:flex-row gap-2">
       <Button
         v-if="!hasOwner"
-        label="Comprar por 10"
+        :label="`Comprar por ${gist.price}`"
         class="mt-5 w-full md:w-auto"
         icon="pi pi-shopping-bag"
         icon-pos="right"
+        @click="handlePay"
       />
       <Button
         v-if="useSession().isLogged() && hasOwner"
