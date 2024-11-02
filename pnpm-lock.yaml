@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@guolao/vue-monaco-editor':
-    specifier: ^1.5.1
-    version: 1.5.1(monaco-editor@0.52.0)(vue@3.5.12)
+    specifier: ^1.5.4
+    version: 1.5.4(monaco-editor@0.52.0)(vue@3.5.12)
   '@nuxtjs/google-fonts':
     specifier: ^3.1.3
     version: 3.1.3
@@ -40,13 +40,13 @@ dependencies:
     version: 1.0.4
   h3-zod:
     specifier: ^0.5.3
-    version: 0.5.3(h3@1.13.0)(zod@3.23.0)
+    version: 0.5.3(h3@1.13.0)(zod@3.23.8)
   hast-util-to-html:
     specifier: ^9.0.3
     version: 9.0.3
   marked:
-    specifier: ^12.0.1
-    version: 12.0.1
+    specifier: ^12.0.2
+    version: 12.0.2
   maska:
     specifier: ^2.1.11
     version: 2.1.11
@@ -72,8 +72,8 @@ dependencies:
     specifier: ^4.4.5
     version: 4.4.5(vue@3.5.12)
   zod:
-    specifier: ^3.23.0
-    version: 3.23.0
+    specifier: ^3.23.8
+    version: 3.23.8
 
 devDependencies:
   '@nuxtjs/color-mode':
@@ -104,8 +104,8 @@ devDependencies:
     specifier: ^5.1.3
     version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@9.9.1)(prettier@3.3.3)
   eslint-plugin-simple-import-sort:
-    specifier: ^12.1.0
-    version: 12.1.0(eslint@9.9.1)
+    specifier: ^12.1.1
+    version: 12.1.1(eslint@9.9.1)
   eslint-plugin-vue:
     specifier: ^9.26.0
     version: 9.26.0(eslint@9.9.1)
@@ -1200,8 +1200,8 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  /@guolao/vue-monaco-editor@1.5.1(monaco-editor@0.52.0)(vue@3.5.12):
-    resolution: {integrity: sha512-nhbQHDAwsxrdH/yitcrBgAkN8Cae0IEiYe/M3LWK8bSJRfapkbMyfTHE6Gcxsxa/6efSUZAPDo8dJWBDx5GZyA==}
+  /@guolao/vue-monaco-editor@1.5.4(monaco-editor@0.52.0)(vue@3.5.12):
+    resolution: {integrity: sha512-eyBAqxJeDpV4mZYZSpNvh3xUgKCld5eEe0dBtjJhsy2+L0MB6PYFZ/FbPHNwskgp2RoIpfn1DLrIhXXE3lVbwQ==}
     peerDependencies:
       '@vue/composition-api': ^1.7.1
       monaco-editor: '>=0.43.0'
@@ -5068,8 +5068,8 @@ packages:
       eslint: 9.9.1
     dev: true
 
-  /eslint-plugin-simple-import-sort@12.1.0(eslint@9.9.1):
-    resolution: {integrity: sha512-Y2fqAfC11TcG/WP3TrI1Gi3p3nc8XJyEOJYHyEPEGI/UAgNx6akxxlX74p7SbAQdLcgASKhj8M0GKvH3vq/+ig==}
+  /eslint-plugin-simple-import-sort@12.1.1(eslint@9.9.1):
+    resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
     peerDependencies:
       eslint: '>=5.0.0'
     dependencies:
@@ -5852,14 +5852,14 @@ packages:
       h3: 1.13.0
     dev: false
 
-  /h3-zod@0.5.3(h3@1.13.0)(zod@3.23.0):
+  /h3-zod@0.5.3(h3@1.13.0)(zod@3.23.8):
     resolution: {integrity: sha512-wqlRd/d5d9sNYxmNglnL63J4v5HiZZrcXdLIiU2cBsy5gTwxrSH1AqtNrVkuUleshgNOAQldbuO06phdUIxuKA==}
     peerDependencies:
       h3: ^1.6.0
       zod: ^3.21.0
     dependencies:
       h3: 1.13.0
-      zod: 3.23.0
+      zod: 3.23.8
     dev: false
 
   /h3@1.13.0:
@@ -6876,8 +6876,8 @@ packages:
       tmpl: 1.0.5
     dev: true
 
-  /marked@12.0.1:
-    resolution: {integrity: sha512-Y1/V2yafOcOdWQCX0XpAKXzDakPOpn6U0YLxTJs3cww6VxOzZV1BTOOYWLvH3gX38cq+iLwljHHTnMtlDfg01Q==}
+  /marked@12.0.2:
+    resolution: {integrity: sha512-qXUm7e/YKFoqFPYPa3Ukg9xlI5cyAtGmyEIzMfW//m6kXwCy2Ps9DYf5ioijFKQ8qyuscrHoY04iJGctu2Kg0Q==}
     engines: {node: '>= 18'}
     hasBin: true
     dev: false
@@ -10293,8 +10293,8 @@ packages:
       compress-commons: 6.0.2
       readable-stream: 4.5.2
 
-  /zod@3.23.0:
-    resolution: {integrity: sha512-OFLT+LTocvabn6q76BTwVB0hExEBS0IduTr3cqZyMqEDbOnYmcU+y0tUAYbND4uwclpBGi4I4UUBGzylWpjLGA==}
+  /zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: false
 
   /zwitch@2.0.4:
