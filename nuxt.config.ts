@@ -1,5 +1,7 @@
 // import path from 'node:path'
 
+import vue from '@vitejs/plugin-vue'
+
 export default defineNuxtConfig({
   devtools: {
     enabled: true,
@@ -74,10 +76,19 @@ export default defineNuxtConfig({
     }
   },
 
+   nitro: {
+    rollupConfig: {
+      // @ts-ignore
+      plugins: [vue()]
+    },
+  },
+
   runtimeConfig: {
     stripeProductId5BRL: process.env.STRIPE_PRODUCT_ID_5BRL,
     stripeProductId10BRL: process.env.STRIPE_PRODUCT_ID_10BRL,
     stripeProductId25BRL: process.env.STRIPE_PRODUCT_ID_25BRL,
+    stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+    resendKey: process.env.RESEND_KEY,
     public: {
       nodeEnv: process.env.NODE_ENV,
       supabaseUrl: process.env.SUPABASE_URL,
