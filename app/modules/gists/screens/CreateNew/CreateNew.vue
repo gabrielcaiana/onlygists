@@ -9,7 +9,14 @@ const { user } = inject(myselfKey) as MyselfContextProvider
 
 const router = useRouter()
 
-const { loading: loadingCreate, headline, code, safeParse, create, errors } = useGistCreate({ user })
+const {
+  loading: loadingCreate,
+  headline,
+  code,
+  safeParse,
+  create,
+  errors
+} = useGistCreate({ user })
 
 const handleLanguageChange = (lang: string) => {
   code.value.lang = lang
@@ -30,7 +37,11 @@ const handleCreateGist = async () => {
 
 <template>
   <WidgetDefault title="Qual gist você quer criar" class="my-5">
-    <HeadLineEdit v-model="headline" :errors="errors" @language-change="handleLanguageChange" />
+    <HeadLineEdit
+      v-model="headline"
+      :errors="errors"
+      @language-change="handleLanguageChange"
+    />
   </WidgetDefault>
 
   <WidgeDefault title="Show me the code">

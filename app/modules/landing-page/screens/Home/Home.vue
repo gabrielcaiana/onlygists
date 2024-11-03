@@ -12,8 +12,8 @@ defineOgImage({
   component: 'Main',
   props: {
     title: 'Onlygists',
-    description: 'Compartilhe e monetize trechos de código.',
-  },
+    description: 'Compartilhe e monetize trechos de código.'
+  }
 })
 </script>
 

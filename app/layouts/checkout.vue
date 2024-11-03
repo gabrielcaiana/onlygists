@@ -51,7 +51,10 @@ const handleWantsBeCreator = () => {
             @logout="handleLogout()"
           />
 
-          <HeaderNotAuthenticated v-else @wants-be-creator="handleWantsBeCreator" />
+          <HeaderNotAuthenticated
+            v-else
+            @wants-be-creator="handleWantsBeCreator"
+          />
         </HeaderLoader>
       </template>
 

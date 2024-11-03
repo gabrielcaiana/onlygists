@@ -25,7 +25,7 @@ export function getMyselfAdapter(data: Row | null): User | null {
     phone: data.phone ?? undefined,
     address,
     createdAt: new Date(data.created_at),
-    paymentConnectedAccount: data.payment_connected_account ?? '',
+    paymentConnectedAccount: data.payment_connected_account ?? ''
   }
 }
 
@@ -47,11 +47,13 @@ export function readOneByUsernameAdapter(data: Row | null): User | null {
     phone: data.phone ?? undefined,
     address,
     createdAt: new Date(data.created_at),
-    paymentConnectedAccount: data.payment_connected_account ?? '',
+    paymentConnectedAccount: data.payment_connected_account ?? ''
   }
 }
 
-export function searchAddressByZipCodeAdapter(data: SearchAddressResponse): Address {
+export function searchAddressByZipCodeAdapter(
+  data: SearchAddressResponse
+): Address {
   return {
     zipCode: data.cep,
     state: data.uf,
@@ -59,6 +61,6 @@ export function searchAddressByZipCodeAdapter(data: SearchAddressResponse): Addr
     city: data.localidade,
     street: data.logradouro,
     complement: data.complemento,
-    neighborhood: data.bairro,
+    neighborhood: data.bairro
   }
 }

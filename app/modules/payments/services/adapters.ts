@@ -8,7 +8,9 @@ export type ReadAllSalesRow = SaleTable['Row'] & {
   gists: GistTable['Row'] | null
 }
 
-export function readAllSalesAdapter(values: ReadAllSalesRow[] | null): SaleVirtual[] {
+export function readAllSalesAdapter(
+  values: ReadAllSalesRow[] | null
+): SaleVirtual[] {
   if (!values) {
     return []
   }
@@ -20,9 +22,9 @@ export function readAllSalesAdapter(values: ReadAllSalesRow[] | null): SaleVirtu
       customerEmail: data.customer_email,
       gists: {
         title: data.gists?.title ?? '',
-        price: data.gists?.price ?? 0,
+        price: data.gists?.price ?? 0
       },
-      createdAt: new Date(data.created_at),
+      createdAt: new Date(data.created_at)
     }
   })
 

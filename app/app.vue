@@ -4,7 +4,7 @@ const colorMode = useColorMode()
 colorMode.preference = 'light'
 
 useHead({
-  title: '🤩 onlygists',
+  title: '🤩 onlygists'
 })
 
 useSeoMeta({
@@ -13,7 +13,7 @@ useSeoMeta({
   description:
     'Compartilhe e monetize trechos de código. Ganhe uma renda extra com os códigos que você faz no dia-a-dia.',
   ogDescription:
-    'Compartilhe e monetize trechos de código. Ganhe uma renda extra com os códigos que você faz no dia-a-dia.',
+    'Compartilhe e monetize trechos de código. Ganhe uma renda extra com os códigos que você faz no dia-a-dia.'
 })
 </script>
 

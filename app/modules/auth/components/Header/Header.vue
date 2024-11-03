@@ -17,31 +17,31 @@ const items = [
   {
     label: 'Painel',
     icon: 'pi pi-chart-line',
-    command: () => emit('navigate-to-reports'),
+    command: () => emit('navigate-to-reports')
   },
   {
     label: 'Novo gist',
     icon: 'pi pi-plus',
-    command: () => emit('navigate-to-new-gist'),
+    command: () => emit('navigate-to-new-gist')
   },
   {
     label: 'Editar perfil',
     icon: 'pi pi-user',
-    command: () => emit('navigate-to-profile-edit'),
+    command: () => emit('navigate-to-profile-edit')
   },
   {
     label: 'Vendas',
     icon: 'pi pi-money-bill',
-    command: () => emit('navigate-to-sales'),
+    command: () => emit('navigate-to-sales')
   },
   {
-    separator: true,
+    separator: true
   },
   {
     label: 'Sair',
     icon: 'pi pi-sign-out',
-    command: () => emit('logout'),
-  },
+    command: () => emit('logout')
+  }
 ]
 
 const toogle = (event: Event) => {
@@ -60,9 +60,19 @@ const toogle = (event: Event) => {
         </div>
 
         <div class="flex items-center">
-          <button class="flex gap-2 items-center" aria-haspopup="true" aria-controls="header-auth-menu" @click="toogle">
-            <span class="font-[Inter] font-regular text-lg text-gray-700">Olá, {{ props.nickname }}!</span>
-            <div v-if="props.profilePic" class="w-9 h-9 rounded-full overflow-hidden">
+          <button
+            class="flex gap-2 items-center"
+            aria-haspopup="true"
+            aria-controls="header-auth-menu"
+            @click="toogle"
+          >
+            <span class="font-[Inter] font-regular text-lg text-gray-700"
+              >Olá, {{ props.nickname }}!</span
+            >
+            <div
+              v-if="props.profilePic"
+              class="w-9 h-9 rounded-full overflow-hidden"
+            >
               <img :src="props.profilePic" alt="foto de perfil do usuário" />
             </div>
           </button>

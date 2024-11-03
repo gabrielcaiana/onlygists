@@ -28,18 +28,18 @@ const nickname = computed(() => {
 const {
   loading: addressLoading,
   searchZipCode,
-  address,
+  address
 } = useAddressUpdate({
-  user,
+  user
 })
 
 const {
   loading: updateLoading,
   safeParse,
   update,
-  errors,
+  errors
 } = useUserUpdate({
-  user,
+  user
 })
 
 const handleShare = (username: string) => {
@@ -79,7 +79,11 @@ const handleUpdateProfile = () => {
     </WidgetDefault>
 
     <WidgetDefault title="Endereço" class="mt-5">
-      <AddressForm v-model="address" :loading="addressLoading" @trigger-address-search="handleZipcodeSearch" />
+      <AddressForm
+        v-model="address"
+        :loading="addressLoading"
+        @trigger-address-search="handleZipcodeSearch"
+      />
     </WidgetDefault>
 
     <Button

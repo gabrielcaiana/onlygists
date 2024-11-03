@@ -3,7 +3,12 @@ import { v4 as uuidV4 } from 'uuid'
 
 import type { Database } from '@/libs/supabase/schema.js'
 
-import { readAllAdapter, type ReadAllRow, readOneAdapter, type ReadOneRow } from './adapters'
+import {
+  readAllAdapter,
+  type ReadAllRow,
+  readOneAdapter,
+  type ReadOneRow
+} from './adapters'
 import type { CreateOptions, ReadAllOptions, UpdateOptions } from './types'
 
 export default (client: SupabaseClient<Database>) => ({
@@ -13,26 +18,35 @@ export default (client: SupabaseClient<Database>) => ({
         .from('gists')
         .select('profiles!inner(id, username)', {
           count: 'exact',
-          head: true,
+          head: true
         })
         .eq('profiles.username', username),
 
       client
         .from('gists')
-        .select('id, title, description, is_paid, price, lang, created_at, profiles!inner(id, username)')
+        .select(
+          'id, title, description, is_paid, price, lang, created_at, profiles!inner(id, username)'
+        )
         .eq('profiles.username', username)
         .order('created_at', { ascending: true })
         .range(from, to)
-        .returns<ReadAllRow[]>(),
+        .returns<ReadAllRow[]>()
     ])
 
     return {
       total: totalResponse.count ?? 0,
-      results: readAllAdapter(gistsResponse.data),
+      results: readAllAdapter(gistsResponse.data)
     }
   },
 
-  async create({ title, description, price, content, lang, profileId }: CreateOptions) {
+  async create({
+    title,
+    description,
+    price,
+    content,
+    lang,
+    profileId
+  }: CreateOptions) {
     const id = uuidV4()
     const isPaid = price !== 0
 
@@ -44,7 +58,7 @@ export default (client: SupabaseClient<Database>) => ({
       content,
       lang,
       profile_id: profileId,
-      is_paid: isPaid,
+      is_paid: isPaid
     })
 
     return { id }
@@ -53,7 +67,9 @@ export default (client: SupabaseClient<Database>) => ({
   async readOne(id: string) {
     const response = await client
       .from('gists')
-      .select('id, title, description, price, lang, is_paid, profiles (id, username)')
+      .select(
+        'id, title, description, price, lang, is_paid, profiles (id, username)'
+      )
       .match({ id })
       .returns<ReadOneRow>()
       .single()
@@ -61,11 +77,19 @@ export default (client: SupabaseClient<Database>) => ({
   },
 
   async readOneContent(id: string) {
-    const response = await client.from('gists').select('id, content').match({ id }).returns<ReadOneRow>().single()
+    const response = await client
+      .from('gists')
+      .select('id, content')
+      .match({ id })
+      .returns<ReadOneRow>()
+      .single()
     return readOneAdapter(response.data)
   },
 
-  async update(id: string, { title, description, price, content, lang }: UpdateOptions) {
+  async update(
+    id: string,
+    { title, description, price, content, lang }: UpdateOptions
+  ) {
     const isPaid = price !== 0
 
     await client
@@ -76,7 +100,7 @@ export default (client: SupabaseClient<Database>) => ({
         price,
         content,
         lang,
-        is_paid: isPaid,
+        is_paid: isPaid
       })
       .match({ id })
 
@@ -86,5 +110,5 @@ export default (client: SupabaseClient<Database>) => ({
   async delete(id: string) {
     await client.from('gists').delete().match({ id })
     return { id }
-  },
+  }
 })

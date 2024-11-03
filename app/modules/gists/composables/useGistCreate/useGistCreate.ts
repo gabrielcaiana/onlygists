@@ -9,7 +9,7 @@ const schema = z.object({
   description: z.string().min(10, 'Uma boa descrição é obrigatória'),
   price: z.number().nonnegative('Preço deve ser maior ou igual a zero'),
   content: z.string().min(2, 'Conteúdo é obrigatório'),
-  lang: z.string().optional(),
+  lang: z.string().optional()
 })
 
 interface UseGistCreateOptions {
@@ -27,12 +27,12 @@ export function useGistCreate({ user }: UseGistCreateOptions) {
   const headline = ref<Headline>({
     title: '',
     description: '',
-    price: 0,
+    price: 0
   })
 
   const code = ref<Code>({
     content: '',
-    lang: 'typescript',
+    lang: 'typescript'
   })
 
   const safeParse = () => {
@@ -53,14 +53,14 @@ export function useGistCreate({ user }: UseGistCreateOptions) {
       const response = await services.gists.create({
         ...headline.value,
         ...code.value,
-        profileId: userId.value,
+        profileId: userId.value
       })
 
       toast.add({
         severity: 'info',
         summary: 'Sucesso!',
         detail: 'Gist criado com sucesso!',
-        life: 3000,
+        life: 3000
       })
 
       return response
@@ -83,6 +83,6 @@ export function useGistCreate({ user }: UseGistCreateOptions) {
     headline,
     code,
     safeParse,
-    create,
+    create
   }
 }

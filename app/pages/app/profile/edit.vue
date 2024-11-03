@@ -2,12 +2,12 @@
 import EditProfile from '@/modules/users/screens/EditProfile/EditProfile.vue'
 
 useHead({
-  title: 'Editar perfil | 🤩 onlygists',
+  title: 'Editar perfil | 🤩 onlygists'
 })
 
 definePageMeta({
   layout: 'admin',
-  middleware: 'auth',
+  middleware: 'auth'
 })
 </script>
 

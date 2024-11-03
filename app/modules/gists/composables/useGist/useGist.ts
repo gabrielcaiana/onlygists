@@ -16,7 +16,7 @@ export function useGist({ id }: UseGistOptions) {
     try {
       const [gistReadOne, gistReadOneContent] = await Promise.all([
         services.gists.readOne(id),
-        services.gists.readOneContent(id),
+        services.gists.readOneContent(id)
       ])
 
       if (gistReadOne) {
@@ -39,6 +39,6 @@ export function useGist({ id }: UseGistOptions) {
 
   return {
     gist,
-    loading,
+    loading
   }
 }

@@ -10,7 +10,7 @@ export default (client: SupabaseClient<Database>, options: ServiceOptions) => ({
   async signInWithGithub() {
     const response = await client.auth.signInWithOAuth({
       provider: 'github',
-      options: { redirectTo: options.redirectTo },
+      options: { redirectTo: options.redirectTo }
     })
     return response
   },
@@ -18,5 +18,5 @@ export default (client: SupabaseClient<Database>, options: ServiceOptions) => ({
   async signOut() {
     const response = await client.auth.signOut()
     return response
-  },
+  }
 })

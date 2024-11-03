@@ -1,16 +1,16 @@
-import { useServerStripe } from "#stripe/server";
+import { useServerStripe } from '#stripe/server'
 
 export default defineEventHandler(async (event) => {
   const accountId = getRouterParam(event, 'accountId')
 
-  if(!accountId ) {
+  if (!accountId) {
     throw createError({
       statusCode: 400,
       statusMessage: 'accountId is required'
     })
   }
 
-  if(!event.context.auth.isAuthenticated) {
+  if (!event.context.auth.isAuthenticated) {
     throw createError({
       statusCode: 401,
       statusMessage: 'Unauthorized'
@@ -24,4 +24,3 @@ export default defineEventHandler(async (event) => {
     isValid: account.details_submitted
   }
 })
-

@@ -2,14 +2,14 @@ export default {
   root: {
     class: [
       // Flexbox
-      'flex flex-col',
-    ],
+      'flex flex-col'
+    ]
   },
   content: {
     class: [
       // Flexbox & Overflow
-      'flex flex-col overflow-auto',
-    ],
+      'flex flex-col overflow-auto'
+    ]
   },
   container: ({ props }) => ({
     class: [
@@ -19,9 +19,9 @@ export default {
       // Orientation
       {
         'flex-row': props.orientation !== 'vertical',
-        'flex-col': props.orientation === 'vertical',
-      },
-    ],
+        'flex-col': props.orientation === 'vertical'
+      }
+    ]
   }),
   previousbutton: {
     class: [
@@ -44,8 +44,8 @@ export default {
       'text-surface-600',
 
       // Transitions
-      'transition duration-200 ease-in-out',
-    ],
+      'transition duration-200 ease-in-out'
+    ]
   },
   nextbutton: {
     class: [
@@ -68,14 +68,14 @@ export default {
       'text-surface-600',
 
       // Transitions
-      'transition duration-200 ease-in-out',
-    ],
+      'transition duration-200 ease-in-out'
+    ]
   },
   itemscontent: {
     class: [
       // Overflow & Width
-      'overflow-hidden w-full',
-    ],
+      'overflow-hidden w-full'
+    ]
   },
   itemscontainer: ({ props }) => ({
     class: [
@@ -85,9 +85,9 @@ export default {
       // Orientation & Sizing
       {
         'flex-row': props.orientation !== 'vertical',
-        'flex-col h-full': props.orientation === 'vertical',
-      },
-    ],
+        'flex-col h-full': props.orientation === 'vertical'
+      }
+    ]
   }),
   item: ({ props }) => ({
     class: [
@@ -96,11 +96,12 @@ export default {
 
       // Size
       {
-        'w-full sm:w-[50%] md:w-[33.333333333333336%]': props.orientation !== 'vertical',
+        'w-full sm:w-[50%] md:w-[33.333333333333336%]':
+          props.orientation !== 'vertical',
 
-        'w-full h-full': props.orientation === 'vertical',
-      },
-    ],
+        'w-full h-full': props.orientation === 'vertical'
+      }
+    ]
   }),
   itemcloned: ({ props }) => ({
     class: [
@@ -110,23 +111,24 @@ export default {
 
       // Size
       {
-        'w-full sm:w-[50%] md:w-[33.333333333333336%]': props.orientation !== 'vertical',
+        'w-full sm:w-[50%] md:w-[33.333333333333336%]':
+          props.orientation !== 'vertical',
 
-        'w-full h-full': props.orientation === 'vertical',
-      },
-    ],
+        'w-full h-full': props.orientation === 'vertical'
+      }
+    ]
   }),
   indicators: {
     class: [
       // Flexbox & Alignment
-      'flex flex-row justify-center flex-wrap',
-    ],
+      'flex flex-row justify-center flex-wrap'
+    ]
   },
   indicator: {
     class: [
       // Spacing
-      'mr-2 mb-2',
-    ],
+      'mr-2 mb-2'
+    ]
   },
   indicatorbutton: ({ context }) => ({
     class: [
@@ -141,9 +143,10 @@ export default {
 
       // Color & Background
       {
-        'bg-surface-200 hover:bg-surface-300 dark:bg-surface-700 dark:hover:bg-surface-600': !context.highlighted,
-        'bg-primary-500 hover:bg-primary-600': context.highlighted,
-      },
-    ],
-  }),
+        'bg-surface-200 hover:bg-surface-300 dark:bg-surface-700 dark:hover:bg-surface-600':
+          !context.highlighted,
+        'bg-primary-500 hover:bg-primary-600': context.highlighted
+      }
+    ]
+  })
 }

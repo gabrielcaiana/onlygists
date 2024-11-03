@@ -18,8 +18,8 @@ const headline = defineModel<Headline>({
   default: {
     title: '',
     description: '',
-    price: 0,
-  },
+    price: 0
+  }
 })
 
 const extension = computed(() => {
@@ -39,14 +39,14 @@ watch(
     if (mimeType) {
       emit('language-change', mimeType.toLowerCase())
     }
-  },
+  }
 )
 
 const priceOptions = [
   { name: 'Grátis', value: 0 },
   { name: 'R$ 5', value: 5 },
   { name: 'R$ 10', value: 10 },
-  { name: 'R$ 25', value: 25 },
+  { name: 'R$ 25', value: 25 }
 ]
 </script>
 
@@ -55,15 +55,27 @@ const priceOptions = [
     <div class="flex flex-col md:flex-row gap-2">
       <div class="flex flex-col gap-2 flex-1">
         <label for="gist-title">Título</label>
-        <InputText id="gist-title" v-model="headline.title" type="text" placeholder="useCurrentUser.ts" />
-        <small v-if="props.errors?.title" class="text-red-500">{{ props.errors?.title._errors[0] }}</small>
+        <InputText
+          id="gist-title"
+          v-model="headline.title"
+          type="text"
+          placeholder="useCurrentUser.ts"
+        />
+        <small v-if="props.errors?.title" class="text-red-500">{{
+          props.errors?.title._errors[0]
+        }}</small>
       </div>
 
       {{ headline.price }}
 
       <div class="flex flex-col gap-2">
         <label for="gist-price">Preço</label>
-        <SelectButton v-model="headline.price" :options="priceOptions" option-value="value" option-label="name" />
+        <SelectButton
+          v-model="headline.price"
+          :options="priceOptions"
+          option-value="value"
+          option-label="name"
+        />
       </div>
     </div>
 
@@ -77,7 +89,9 @@ const priceOptions = [
         placeholder="useCurrentUser() é um hook que você consegue..."
       />
       <small class="text-gray-600">Markdown é suportado.</small>
-      <small v-if="props.errors?.description" class="text-red-500">{{ props.errors?.description._errors[0] }}</small>
+      <small v-if="props.errors?.description" class="text-red-500">{{
+        props.errors?.description._errors[0]
+      }}</small>
     </div>
   </div>
 </template>

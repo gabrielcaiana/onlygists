@@ -1,6 +1,6 @@
 export default {
   input: {
-    class: 'hidden',
+    class: 'hidden'
   },
   buttonbar: {
     class: [
@@ -27,8 +27,8 @@ export default {
 
       // Shape
       'rounded-tr-lg',
-      'rounded-tl-lg',
-    ],
+      'rounded-tl-lg'
+    ]
   },
   chooseButton: {
     class: [
@@ -57,24 +57,24 @@ export default {
 
       // Misc
       'overflow-hidden',
-      'cursor-pointer',
-    ],
+      'cursor-pointer'
+    ]
   },
   chooseIcon: {
-    class: ['mr-2', 'inline-block'],
+    class: ['mr-2', 'inline-block']
   },
   chooseButtonLabel: {
-    class: ['flex-1', 'font-bold'],
+    class: ['flex-1', 'font-bold']
   },
   uploadbutton: {
     icon: {
-      class: 'mr-2',
-    },
+      class: 'mr-2'
+    }
   },
   cancelbutton: {
     icon: {
-      class: 'mr-2',
-    },
+      class: 'mr-2'
+    }
   },
   content: {
     class: [
@@ -96,8 +96,8 @@ export default {
       'dark:border-surface-700',
 
       // Shape
-      'rounded-b-lg',
-    ],
+      'rounded-b-lg'
+    ]
   },
   file: {
     class: [
@@ -118,20 +118,20 @@ export default {
       'gap-2',
 
       // Shape
-      'rounded',
-    ],
+      'rounded'
+    ]
   },
   thumbnail: {
-    class: 'shrink-0',
+    class: 'shrink-0'
   },
   fileName: {
-    class: 'mb-2',
+    class: 'mb-2'
   },
   fileSize: {
-    class: 'mr-2',
+    class: 'mr-2'
   },
   uploadicon: {
-    class: 'mr-2',
+    class: 'mr-2'
   },
   progressbar: {
     root: {
@@ -147,8 +147,8 @@ export default {
         'w-full',
 
         // Colors
-        'bg-surface-100 dark:bg-surface-700',
-      ],
+        'bg-surface-100 dark:bg-surface-700'
+      ]
     },
     value: {
       class: [
@@ -166,8 +166,8 @@ export default {
         'border-0',
 
         // Transitions
-        'transition-width duration-1000 ease-in-out',
-      ],
-    },
-  },
+        'transition-width duration-1000 ease-in-out'
+      ]
+    }
+  }
 }

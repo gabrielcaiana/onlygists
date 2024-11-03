@@ -22,21 +22,21 @@ const { data: user } = await useAsyncData('user-public-profile', () => {
 })
 
 const { gists, loading, fetchMoreGistsByUsername } = useGistList({
-  username: route.params.username as string,
+  username: route.params.username as string
 })
 
 const {
   loading: reportLoading,
   totalGists,
   totalFreeGists,
-  totalPaidGists,
+  totalPaidGists
 } = useGistsReport({
   user,
-  isMyself: false,
+  isMyself: false
 })
 
 const { arrivedState } = useScroll(window, {
-  offset: { bottom: 100 },
+  offset: { bottom: 100 }
 })
 
 watch(
@@ -47,7 +47,7 @@ watch(
     }
 
     fetchMoreGistsByUsername()
-  },
+  }
 )
 
 const handleNavigateToDetail = (id: string) => {
@@ -60,15 +60,15 @@ defineOgImage({
   props: {
     avatarUrl: user.value?.avatarUrl,
     author: user.value?.name,
-    bio: user.value?.bio,
-  },
+    bio: user.value?.bio
+  }
 })
 
 useSeoMeta({
   title: `${user.value?.name} - @${user.value?.username}`,
   ogTitle: `${user.value?.name} - @${user.value?.username}`,
   description: `Veja os gists de ${user.value?.name} no onlygists`,
-  ogDescription: `Veja os gists de ${user.value?.name} no onlygists`,
+  ogDescription: `Veja os gists de ${user.value?.name} no onlygists`
 })
 </script>
 

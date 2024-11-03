@@ -23,7 +23,8 @@ const gistId = ref(route.params.id as string)
 
 const hasOwner = computed(() => user.value?.username === route.params.username)
 
-const handleNavigateToGistEdit = () => router.push(`/app/gist/${gistId.value}/edit`)
+const handleNavigateToGistEdit = () =>
+  router.push(`/app/gist/${gistId.value}/edit`)
 
 // to show loading in client change to useLazyAsyncData
 const { data: gist, pending: loading } = useAsyncData('gist-detail', () => {
@@ -31,7 +32,7 @@ const { data: gist, pending: loading } = useAsyncData('gist-detail', () => {
 })
 
 const { gistContent, loading: loadingContent } = useGistContent({
-  gist,
+  gist
 })
 
 const { checkoutUrl, createCheckoutUrl } = useStripeCheckout()
@@ -43,7 +44,7 @@ const handlePay = async () => {
     price: String(gist.value?.price) // FIXME: need get price in backend in refactor,
   })
 
-  if(!checkoutUrl.value) {
+  if (!checkoutUrl.value) {
     return
   }
 
@@ -66,15 +67,18 @@ defineOgImage({
   component: 'GistDetail',
   props: {
     title: () => `${gist.value?.title} by @${gist.value?.profiles.username}`,
-    description: () => `Veja o gist de ${gist.value?.profiles.username} no onlygists`,
-  },
+    description: () =>
+      `Veja o gist de ${gist.value?.profiles.username} no onlygists`
+  }
 })
 
 useSeoMeta({
   title: () => `${gist.value?.title} by @${gist.value?.profiles.username}`,
   ogTitle: () => `${gist.value?.title} by @${gist.value?.profiles.username}`,
-  description: () => `Veja o gist de ${gist.value?.profiles.username} no onlygists`,
-  ogDescription: () => `Veja o gist de ${gist.value?.profiles.username} no onlygists`,
+  description: () =>
+    `Veja o gist de ${gist.value?.profiles.username} no onlygists`,
+  ogDescription: () =>
+    `Veja o gist de ${gist.value?.profiles.username} no onlygists`
 })
 </script>
 

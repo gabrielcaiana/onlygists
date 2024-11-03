@@ -15,13 +15,13 @@ const { user } = inject(myselfKey) as MyselfContextProvider
 const {
   loading: reportLoading,
   netRevenue,
-  grossRevenue,
+  grossRevenue
 } = useSalesReport({
-  userId: user.value?.id as string,
+  userId: user.value?.id as string
 })
 
 const { sales, loading } = useSalesList({
-  userId: user.value?.id as string,
+  userId: user.value?.id as string
 })
 
 const localeGrossRevenue = computed(() => {

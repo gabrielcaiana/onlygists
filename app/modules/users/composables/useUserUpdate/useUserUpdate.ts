@@ -8,7 +8,7 @@ const schema = z.object({
   name: z.string().min(2, 'Nome é obrigatório'),
   site: z.string().url().optional(),
   bio: z.string().optional(),
-  phone: z.string().optional(),
+  phone: z.string().optional()
 })
 
 interface UseUserUpdateOptions {
@@ -39,14 +39,14 @@ export function useUserUpdate({ user: userRef }: UseUserUpdateOptions) {
     loading.value = true
     try {
       await services.users.update(user.value.id, {
-        ...user.value,
+        ...user.value
       })
 
       toast.add({
         severity: 'success',
         summary: 'Sucesso',
         detail: 'Perfil atualizado com sucesso',
-        life: 3000,
+        life: 3000
       })
     } catch (error) {
       logAndTrace(error)
@@ -66,6 +66,6 @@ export function useUserUpdate({ user: userRef }: UseUserUpdateOptions) {
     loading,
     errors,
     safeParse,
-    update,
+    update
   }
 }

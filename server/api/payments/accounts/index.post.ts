@@ -12,14 +12,14 @@ export default defineEventHandler(async (event) => {
   if (!payment.email) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Email is required',
+      statusMessage: 'Email is required'
     })
   }
 
   if (!event.context.auth.isAuthenticated) {
     throw createError({
       statusCode: 401,
-      statusMessage: 'Unauthorized',
+      statusMessage: 'Unauthorized'
     })
   }
 
@@ -31,13 +31,13 @@ export default defineEventHandler(async (event) => {
     type: 'express',
     email: payment.email,
     country: 'BR',
-    business_type: 'individual',
+    business_type: 'individual'
   })
 
   await supabase
     .from('profiles')
     .update({
-      payment_connected_account: account.id,
+      payment_connected_account: account.id
     })
     .eq('email', payment.email)
 
@@ -45,11 +45,11 @@ export default defineEventHandler(async (event) => {
     account: account.id,
     refresh_url: `${config.public.siteUrl}/app/panel`,
     return_url: `${config.public.siteUrl}/app/panel`,
-    type: 'account_onboarding',
+    type: 'account_onboarding'
   })
 
   return {
     accountId: account.id,
-    onboardingUrl: accountLink.url,
+    onboardingUrl: accountLink.url
   }
 })

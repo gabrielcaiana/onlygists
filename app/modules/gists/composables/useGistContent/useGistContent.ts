@@ -49,6 +49,6 @@ export function useGistContent({ gist }: UseGistContentOptions) {
   return {
     loading,
     gistId,
-    gistContent,
+    gistContent
   }
 }

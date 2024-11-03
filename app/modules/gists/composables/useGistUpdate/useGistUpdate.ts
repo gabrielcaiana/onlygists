@@ -1,14 +1,19 @@
 import type { ZodFormattedError } from 'zod'
 import { z } from 'zod'
 
-import type { Code, Gist, GistVirtual, Headline } from '@/modules/gists/entities/Gist/Gist'
+import type {
+  Code,
+  Gist,
+  GistVirtual,
+  Headline
+} from '@/modules/gists/entities/Gist/Gist'
 
 const schema = z.object({
   title: z.string().min(2, 'Título é obrigatório'),
   description: z.string().min(10, 'Uma boa documentação é obrigatória'),
   price: z.number(),
   content: z.string().min(2, 'O código é obrigatório'),
-  lang: z.string().optional(),
+  lang: z.string().optional()
 })
 
 interface UseGistUpdateOptions {
@@ -25,12 +30,12 @@ export function useGistUpdate({ gist }: UseGistUpdateOptions) {
   const headline = ref<Headline>({
     title: '',
     description: '',
-    price: 0,
+    price: 0
   })
 
   const code = ref<Code>({
     content: '',
-    lang: 'typescript',
+    lang: 'typescript'
   })
 
   const safeParse = () => {
@@ -55,14 +60,14 @@ export function useGistUpdate({ gist }: UseGistUpdateOptions) {
         description: headline.value.description,
         price: headline.value.price,
         content: code.value.content,
-        lang: code.value.lang,
+        lang: code.value.lang
       })
 
       toast.add({
         severity: 'info',
         summary: 'Sucesso!',
         detail: 'Gist atualizado!',
-        life: 2000,
+        life: 2000
       })
 
       return response
@@ -81,12 +86,12 @@ export function useGistUpdate({ gist }: UseGistUpdateOptions) {
     headline.value = {
       title: gist.value.title,
       description: gist.value.description,
-      price: gist.value.price,
+      price: gist.value.price
     }
 
     code.value = {
       content: gist.value.content,
-      lang: gist.value.lang,
+      lang: gist.value.lang
     }
   })
 
@@ -96,6 +101,6 @@ export function useGistUpdate({ gist }: UseGistUpdateOptions) {
     headline,
     code,
     safeParse,
-    update,
+    update
   }
 }

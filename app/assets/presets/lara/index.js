@@ -91,7 +91,7 @@ export default {
   directives: {
     tooltip,
     badgedirective,
-    ripple,
+    ripple
   },
   autocomplete,
   calendar,
@@ -175,5 +175,5 @@ export default {
   progressbar,
   progressspinner,
   tag,
-  terminal,
+  terminal
 }

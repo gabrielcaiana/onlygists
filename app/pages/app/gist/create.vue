@@ -2,12 +2,12 @@
 import CreateNew from '@/modules/gists/screens/CreateNew/CreateNew.vue'
 
 useHead({
-  title: 'Criar novo gist | 🤩 onlygists',
+  title: 'Criar novo gist | 🤩 onlygists'
 })
 
 definePageMeta({
   layout: 'admin',
-  middleware: 'auth',
+  middleware: 'auth'
 })
 </script>
 

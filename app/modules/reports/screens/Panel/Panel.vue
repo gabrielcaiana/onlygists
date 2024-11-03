@@ -24,21 +24,21 @@ const {
   totalGists,
   totalFreeGists,
   totalPaidGists,
-  totalSoldGists,
+  totalSoldGists
 } = useGistsReport({
   user,
-  isMyself: true,
+  isMyself: true
 })
 
 const { gists, loading, fetchMoreGistsByUsername } = useGistList({
-  username: user.value?.username as string,
+  username: user.value?.username as string
 })
 
 const { loading: paymentCreateLoading, create } = useStripeAccountCreate()
 const { isValid, validate } = useStripeAccountValidate()
 
 const { arrivedState } = useScroll(window, {
-  offset: { bottom: 100 },
+  offset: { bottom: 100 }
 })
 
 watch(
@@ -49,7 +49,7 @@ watch(
     }
 
     fetchMoreGistsByUsername()
-  },
+  }
 )
 
 const handleNavigateToDetail = (id: string) => {
@@ -72,7 +72,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <PaymentSetupAlert v-if="!isValid" @setup="handlePaymentSetup" :loading="paymentCreateLoading" />
+  <PaymentSetupAlert
+    v-if="!isValid"
+    @setup="handlePaymentSetup"
+    :loading="paymentCreateLoading"
+  />
 
   <WidgetGroup>
     <WidgetGroupLoader :loading="reportLoading" :amount="3">

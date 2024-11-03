@@ -17,14 +17,14 @@ export default {
       'text-surface-700 dark:text-surface-0/80',
 
       // Before: Arrow
-      'before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-surface-0 dark:before:border-b-surface-800',
-    ],
+      'before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-surface-0 dark:before:border-b-surface-800'
+    ]
   },
   content: {
-    class: 'p-5 items-center flex',
+    class: 'p-5 items-center flex'
   },
   icon: {
-    class: 'text-2xl mr-4',
+    class: 'text-2xl mr-4'
   },
   footer: {
     class: [
@@ -44,8 +44,8 @@ export default {
 
       // Colors
       'bg-surface-0 dark:bg-surface-800',
-      'text-surface-700 dark:text-surface-0/80',
-    ],
+      'text-surface-700 dark:text-surface-0/80'
+    ]
   },
   rejectbutton: {
     root: {
@@ -67,9 +67,9 @@ export default {
         // States
         'hover:bg-primary-300/20',
         'focus:outline-none focus:outline-offset-0 focus:ring',
-        'focus:ring-primary-400/50 dark:focus:ring-primary-300/50',
-      ],
-    },
+        'focus:ring-primary-400/50 dark:focus:ring-primary-300/50'
+      ]
+    }
   },
   acceptbutton: {
     root: {
@@ -93,14 +93,15 @@ export default {
         // States
         'hover:bg-primary-600 dark:hover:bg-primary-300 hover:border-primary-600 dark:hover:border-primary-300',
         'focus:outline-none focus:outline-offset-0 focus:ring',
-        'focus:ring-primary-400/50 dark:focus:ring-primary-300/50',
-      ],
-    },
+        'focus:ring-primary-400/50 dark:focus:ring-primary-300/50'
+      ]
+    }
   },
   transition: {
     enterFromClass: 'opacity-0 scale-y-[0.8]',
-    enterActiveClass: 'transition-[transform,opacity] duration-[120ms] ease-[cubic-bezier(0,0,0.2,1)]',
+    enterActiveClass:
+      'transition-[transform,opacity] duration-[120ms] ease-[cubic-bezier(0,0,0.2,1)]',
     leaveActiveClass: 'transition-opacity duration-100 ease-linear',
-    leaveToClass: 'opacity-0',
-  },
+    leaveToClass: 'opacity-0'
+  }
 }

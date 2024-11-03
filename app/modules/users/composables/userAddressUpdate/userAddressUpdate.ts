@@ -12,7 +12,7 @@ const INITIAL_ADDRESS_INFO = {
   city: '',
   state: '',
   neighborhood: '',
-  complement: '',
+  complement: ''
 }
 
 export function useAddressUpdate({ user }: UseAddressUpdateOptions) {
@@ -30,7 +30,9 @@ export function useAddressUpdate({ user }: UseAddressUpdateOptions) {
     loading.value = true
 
     try {
-      const response = await services.users.searchAddressByZipCode(address.value.zipCode)
+      const response = await services.users.searchAddressByZipCode(
+        address.value.zipCode
+      )
       address.value = response.data
     } catch (e) {
       logAndTrace(e)
@@ -50,6 +52,6 @@ export function useAddressUpdate({ user }: UseAddressUpdateOptions) {
   return {
     loading,
     address,
-    searchZipCode,
+    searchZipCode
   }
 }

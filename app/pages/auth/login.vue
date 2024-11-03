@@ -2,11 +2,11 @@
 import Login from '@/modules/auth/screens/Login/Login.vue'
 
 useHead({
-  title: 'Entrar | 🤩 onlygists',
+  title: 'Entrar | 🤩 onlygists'
 })
 
 definePageMeta({
-  middleware: ['guest'],
+  middleware: ['guest']
 })
 </script>
 <template>

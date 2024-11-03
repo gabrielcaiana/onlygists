@@ -29,6 +29,6 @@ export function useSalesList({ userId }: UseSalesListOptions) {
 
   return {
     sales,
-    loading,
+    loading
   }
 }

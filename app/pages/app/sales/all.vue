@@ -2,12 +2,12 @@
 import Sales from '@/modules/payments/screens/Sales/Sales.vue'
 
 useHead({
-  title: 'Minhas vendas | 🤩 onlygists',
+  title: 'Minhas vendas | 🤩 onlygists'
 })
 
 definePageMeta({
   layout: 'admin',
-  middleware: ['auth'],
+  middleware: ['auth']
 })
 </script>
 

@@ -20,11 +20,11 @@ export function readOneAdapter(data: ReadOneRow | null): GistVirtual | null {
     price: data.price,
     profiles: {
       id: data.profiles?.id,
-      username: data.profiles?.username,
+      username: data.profiles?.username
     },
     lang: data.lang,
     content: data.content,
-    createdAt: new Date(data.created_at),
+    createdAt: new Date(data.created_at)
   }
 }
 
@@ -47,11 +47,11 @@ export function readAllAdapter(values: ReadAllRow[] | null): GistVirtual[] {
       price: data.price,
       profiles: {
         id: data.profiles?.id,
-        username: data.profiles?.username,
+        username: data.profiles?.username
       },
       lang: data.lang,
       content: data.content,
-      createdAt: new Date(data.created_at),
+      createdAt: new Date(data.created_at)
     }
   })
 

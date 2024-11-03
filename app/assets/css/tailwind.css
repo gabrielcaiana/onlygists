@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --primary-50:  240, 253, 244;
+  --primary-50: 240, 253, 244;
   --primary-100: 220, 252, 231;
   --primary-200: 187, 247, 208;
   --primary-300: 134, 239, 172;

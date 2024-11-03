@@ -12,6 +12,6 @@ export function useSession() {
   return {
     user,
     isLogged,
-    logout,
+    logout
   }
 }

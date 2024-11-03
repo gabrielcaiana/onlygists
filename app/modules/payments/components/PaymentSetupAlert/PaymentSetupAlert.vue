@@ -10,11 +10,18 @@ const props = defineProps<{
 
 <template>
   <Card #content>
-    <div class="flex flex-col md:flex-row text-center md:text-start items-center gap-4">
+    <div
+      class="flex flex-col md:flex-row text-center md:text-start items-center gap-4"
+    >
       <i class="pi pi-info-circle text-yellow-700 text-4xl"></i>
       <div class="flex flex-col flex-1">
-        <h4 class="font-[inter] text-sm text-yellow-700">Complete os dados de pagamento</h4>
-        <p class="font-[inter] text-sm">É necessário fazer a criação de uma conta de pagamento para ativar sua conta</p>
+        <h4 class="font-[inter] text-sm text-yellow-700">
+          Complete os dados de pagamento
+        </h4>
+        <p class="font-[inter] text-sm">
+          É necessário fazer a criação de uma conta de pagamento para ativar sua
+          conta
+        </p>
       </div>
 
       <Button

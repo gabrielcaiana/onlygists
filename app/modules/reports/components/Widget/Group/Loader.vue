@@ -6,8 +6,8 @@ withDefaults(
   }>(),
   {
     loading: false,
-    amount: 4,
-  },
+    amount: 4
+  }
 )
 </script>
 

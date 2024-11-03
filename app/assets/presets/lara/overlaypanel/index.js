@@ -25,16 +25,17 @@ export default {
       'after:w-0 after:h-0',
       'after:border-transparent after:border-solid',
       'after:border-x-[0.5rem] after:border-[0.5rem]',
-      'after:border-t-0 after:border-b-surface-0 dark:after:border-b-surface-800',
-    ],
+      'after:border-t-0 after:border-b-surface-0 dark:after:border-b-surface-800'
+    ]
   },
   content: {
-    class: 'p-5 items-center flex',
+    class: 'p-5 items-center flex'
   },
   transition: {
     enterFromClass: 'opacity-0 scale-y-[0.8]',
-    enterActiveClass: 'transition-[transform,opacity] duration-[120ms] ease-[cubic-bezier(0,0,0.2,1)]',
+    enterActiveClass:
+      'transition-[transform,opacity] duration-[120ms] ease-[cubic-bezier(0,0,0.2,1)]',
     leaveActiveClass: 'transition-opacity duration-100 ease-linear',
-    leaveToClass: 'opacity-0',
-  },
+    leaveToClass: 'opacity-0'
+  }
 }

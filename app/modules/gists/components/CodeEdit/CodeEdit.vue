@@ -25,8 +25,8 @@ const code = defineModel<Code>({
   required: true,
   default: {
     content: DEFAULT_CODE,
-    lang: 'typescript',
-  },
+    lang: 'typescript'
+  }
 })
 
 const MONACO_EDITOR_OPTIONS = {
@@ -37,9 +37,9 @@ const MONACO_EDITOR_OPTIONS = {
     top: 10,
     bottom: 10,
     left: 10,
-    right: 10,
+    right: 10
   },
-  fontSize: 15,
+  fontSize: 15
 }
 </script>
 
@@ -55,6 +55,8 @@ const MONACO_EDITOR_OPTIONS = {
       :default-language="code.lang"
       :language="code.lang"
     />
-    <small v-if="props.errors?.content" class="text-red-500">{{ props.errors?.content._errors[0] }}</small>
+    <small v-if="props.errors?.content" class="text-red-500">{{
+      props.errors?.content._errors[0]
+    }}</small>
   </div>
 </template>

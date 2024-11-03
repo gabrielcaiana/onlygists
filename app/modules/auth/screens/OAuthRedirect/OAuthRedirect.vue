@@ -11,7 +11,9 @@ onMounted(() => navigateToPanel())
 <template>
   <MainContent>
     <template #content>
-      <p class="font-[Inter] text-gray-800 text-base 🤩">🤩 Redirecionando...</p>
+      <p class="font-[Inter] text-gray-800 text-base 🤩">
+        🤩 Redirecionando...
+      </p>
     </template>
   </MainContent>
 </template>

@@ -16,7 +16,9 @@ const emit = defineEmits<{
       <img :src="avatarUrl" alt="Foto de perfil do usuário" />
     </div>
 
-    <h1 class="font-[Inter] text-gray-700 font-bold text-2xl md:text-3xl">@{{ username }}</h1>
+    <h1 class="font-[Inter] text-gray-700 font-bold text-2xl md:text-3xl">
+      @{{ username }}
+    </h1>
 
     <div class="flex gap-2 mt-2">
       <Button

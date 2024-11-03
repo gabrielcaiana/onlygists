@@ -28,7 +28,7 @@ export function useGistsReport({ user, isMyself }: UseGistsReportOptions) {
       const requests = [
         services.reports.totalGistsPublished(userId.value),
         services.reports.totalFreeGistsPublished(userId.value),
-        services.reports.totalPaidGistsPublished(userId.value),
+        services.reports.totalPaidGistsPublished(userId.value)
       ]
 
       if (isMyself) {
@@ -62,6 +62,6 @@ export function useGistsReport({ user, isMyself }: UseGistsReportOptions) {
     totalGists,
     totalFreeGists,
     totalPaidGists,
-    totalSoldGists,
+    totalSoldGists
   }
 }

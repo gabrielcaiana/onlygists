@@ -5,15 +5,19 @@ export default {
       'w-12 h-7',
       'rounded-2xl',
       {
-        'opacity-60 select-none pointer-events-none cursor-default': props.disabled,
-      },
-    ],
+        'opacity-60 select-none pointer-events-none cursor-default':
+          props.disabled
+      }
+    ]
   }),
   slider: ({ props }) => ({
     class: [
       // Position
       'absolute top-0 left-0 right-0 bottom-0',
-      { 'before:transform before:translate-x-5': props.modelValue === props.trueValue },
+      {
+        'before:transform before:translate-x-5':
+          props.modelValue === props.trueValue
+      },
 
       // Shape
       'rounded-2xl',
@@ -29,8 +33,11 @@ export default {
       // Colors
       'border',
       {
-        'bg-surface-200 dark:bg-surface-700': !(props.modelValue === props.trueValue),
-        'bg-primary-500 dark:bg-primary-400': props.modelValue === props.trueValue,
+        'bg-surface-200 dark:bg-surface-700': !(
+          props.modelValue === props.trueValue
+        ),
+        'bg-primary-500 dark:bg-primary-400':
+          props.modelValue === props.trueValue
       },
 
       { 'border-transparent': !props.invalid },
@@ -41,11 +48,11 @@ export default {
       // States
       {
         'peer-hover:bg-surface-300 dark:peer-hover:bg-surface-600 ':
-          !(props.modelValue === props.trueValue) && !props.disabled,
+          !(props.modelValue === props.trueValue) && !props.disabled
       },
       {
         'peer-hover:bg-primary-600 dark:peer-hover:bg-surface-300 ':
-          props.modelValue === props.trueValue && !props.disabled,
+          props.modelValue === props.trueValue && !props.disabled
       },
       'peer-focus-visible:ring peer-focus-visible:ring-primary-400/50 dark:peer-focus-visible:ring-primary-300/50',
 
@@ -53,8 +60,8 @@ export default {
       'transition-colors duration-200',
 
       // Misc
-      'cursor-pointer',
-    ],
+      'cursor-pointer'
+    ]
   }),
   input: {
     class: [
@@ -80,7 +87,7 @@ export default {
 
       // Misc
       'appearance-none',
-      'cursor-pointer',
-    ],
-  },
+      'cursor-pointer'
+    ]
+  }
 }

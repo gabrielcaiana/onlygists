@@ -18,8 +18,8 @@ const props = withDefaults(
     title: 'useCurrentUser.ts',
     description: 'Hook para controlar o **usuário** logado',
     price: 10,
-    lang: 'Typescript',
-  },
+    lang: 'Typescript'
+  }
 )
 
 const isFree = computed(() => props.price === 0)

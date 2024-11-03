@@ -26,6 +26,6 @@ export function useStripeAccountValidate() {
   return {
     isValid,
     loading,
-    validate,
+    validate
   }
 }

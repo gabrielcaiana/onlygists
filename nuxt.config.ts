@@ -4,12 +4,12 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
     timeline: {
-      enabled: true,
-    },
+      enabled: true
+    }
   },
-  
+
   dir: {
-    app: 'app',
+    app: 'app'
   },
 
   modules: [
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/seo',
-    '@unlok-co/nuxt-stripe',
+    '@unlok-co/nuxt-stripe'
   ],
 
   css: ['primeicons/primeicons.css'],
@@ -30,13 +30,13 @@ export default defineNuxtConfig({
     fontsDir: 'assets/fonts',
     overwriting: true,
     families: {
-      Inter: [300, 500, 800],
-    },
+      Inter: [300, 500, 800]
+    }
   },
 
   primevue: {
     options: { unstyled: true },
-    importPT: { as: 'Lara', from: './assets/presets/lara/' },
+    importPT: { as: 'Lara', from: './assets/presets/lara/' }
 
     // not work in Windows
     // importPT: {
@@ -46,24 +46,28 @@ export default defineNuxtConfig({
   },
 
   supabase: {
-    redirect: false,
+    redirect: false
   },
 
   ogImage: {
-    fonts: ['Inter:400', 'Inter:700'],
+    fonts: ['Inter:400', 'Inter:700']
   },
 
   site: {
-    url: process.env.SITE_URL,
+    url: process.env.SITE_URL
   },
 
   imports: {
-    dirs: ['./composables/useMarkdown', './composables/useServices', './composables/useLogger'],
+    dirs: [
+      './composables/useMarkdown',
+      './composables/useServices',
+      './composables/useLogger'
+    ]
   },
 
-  stripe: { 
+  stripe: {
     client: {
-      key: process.env.STRIPE_CLIENT_KEY,
+      key: process.env.STRIPE_CLIENT_KEY
     },
     server: {
       key: process.env.STRIPE_SECRET_KEY
@@ -78,13 +82,13 @@ export default defineNuxtConfig({
       nodeEnv: process.env.NODE_ENV,
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseKey: process.env.SUPABASE_KEY,
-      siteUrl: process.env.SITE_URL,
-    },
+      siteUrl: process.env.SITE_URL
+    }
   },
 
   future: {
-    compatibilityVersion: 4,
+    compatibilityVersion: 4
   },
 
-  compatibilityDate: '2024-09-01',
+  compatibilityDate: '2024-09-01'
 })

@@ -22,7 +22,8 @@ export function useSalesReport({ userId }: UseSalesReportOptions) {
     try {
       const total = await services.reports.totalRevenue(userId)
       grossRevenue.value = total ?? 0
-      netRevenue.value = total === 0 ? 0 : applyPayoutFeesToGrossValue(total ?? 0)
+      netRevenue.value =
+        total === 0 ? 0 : applyPayoutFeesToGrossValue(total ?? 0)
     } catch (e) {
       logAndTrace(e)
     } finally {
@@ -36,6 +37,6 @@ export function useSalesReport({ userId }: UseSalesReportOptions) {
   return {
     loading,
     grossRevenue,
-    netRevenue,
+    netRevenue
   }
 }

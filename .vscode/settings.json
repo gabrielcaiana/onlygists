@@ -23,6 +23,6 @@
   "workbench.statusBar.visible": true,
   "liveServer.settings.root": "/docs",
   "prettier.enable": true,
-  "eslint.alwaysShowStatus": false,
+  "eslint.alwaysShowStatus": true,
   "liveServer.settings.donotVerifyTags": true
 }

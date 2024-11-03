@@ -18,8 +18,8 @@ const address = defineModel<Address>({
     city: '',
     state: '',
     complement: '',
-    neighborhood: '',
-  },
+    neighborhood: ''
+  }
 })
 </script>
 
@@ -30,7 +30,10 @@ const address = defineModel<Address>({
         <div class="flex flex-col gap-2 flex-1">
           <label for="cep">
             CEP
-            <i v-if="loading" class="pi pi-spinner text-green-500 animate-spin" />
+            <i
+              v-if="loading"
+              class="pi pi-spinner text-green-500 animate-spin"
+            />
           </label>
           <InputText
             id="cep"
@@ -63,11 +66,19 @@ const address = defineModel<Address>({
     <div class="flex flex-col md:flex-row gap-2">
       <div class="flex flex-col gap-2 flex-1">
         <label for="neighborhood">Bairro</label>
-        <InputText id="neighborhood" v-model="address.neighborhood" placeholder="Jardim Paulista" />
+        <InputText
+          id="neighborhood"
+          v-model="address.neighborhood"
+          placeholder="Jardim Paulista"
+        />
       </div>
       <div class="flex flex-col gap-2 flex-1">
         <label for="complement">Complemento</label>
-        <InputText id="complement" v-model="address.complement" placeholder="Apto, Bloco etc..." />
+        <InputText
+          id="complement"
+          v-model="address.complement"
+          placeholder="Apto, Bloco etc..."
+        />
       </div>
     </div>
   </div>

@@ -25,7 +25,7 @@ export function useGistDelete({ gist }: UseGistDeleteOptions) {
         severity: 'info',
         summary: 'Sucesso!',
         detail: 'Gist apagado!',
-        life: 2000,
+        life: 2000
       })
 
       return response
@@ -46,6 +46,6 @@ export function useGistDelete({ gist }: UseGistDeleteOptions) {
 
   return {
     loading,
-    remove,
+    remove
   }
 }

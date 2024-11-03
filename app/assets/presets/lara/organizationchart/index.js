@@ -5,8 +5,8 @@ export default {
       'mx-auto my-0',
 
       // Table Style
-      'border-spacing-0 border-separate',
-    ],
+      'border-spacing-0 border-separate'
+    ]
   },
   cell: {
     class: [
@@ -14,8 +14,8 @@ export default {
       'text-center align-top',
 
       // Spacing
-      'py-0 px-3',
-    ],
+      'py-0 px-3'
+    ]
   },
   node: ({ props, context }) => ({
     class: [
@@ -34,17 +34,19 @@ export default {
         'border-surface-200 dark:border-surface-700': !context?.selected,
         'text-primary-700 dark:text-surface-0': context?.selected,
         'bg-primary-50 dark:bg-primary-400/30': context?.selected,
-        'border-primary-200 dark:border-primary-600': context?.selected,
+        'border-primary-200 dark:border-primary-600': context?.selected
       },
 
       // States
       {
-        'hover:bg-surface-100 dark:hover:bg-surface-700': context?.selectable && !context?.selected,
-        'hover:bg-primary-100 dark:hover:bg-primary-300/30': context?.selectable && context?.selected,
+        'hover:bg-surface-100 dark:hover:bg-surface-700':
+          context?.selectable && !context?.selected,
+        'hover:bg-primary-100 dark:hover:bg-primary-300/30':
+          context?.selectable && context?.selected
       },
 
-      { 'cursor-pointer': context?.selectable },
-    ],
+      { 'cursor-pointer': context?.selectable }
+    ]
   }),
   linecell: {
     class: [
@@ -52,8 +54,8 @@ export default {
       'text-center align-top',
 
       // Spacing
-      'py-0 px-3',
-    ],
+      'py-0 px-3'
+    ]
   },
   linedown: {
     class: [
@@ -64,8 +66,8 @@ export default {
       'w-px h-[20px]',
 
       // Color
-      'bg-surface-200 dark:bg-surface-700',
-    ],
+      'bg-surface-200 dark:bg-surface-700'
+    ]
   },
   lineleft: ({ context }) => ({
     class: [
@@ -80,8 +82,8 @@ export default {
       { 'border-t': context.lineTop },
 
       // Color
-      'border-surface-200 dark:border-surface-700',
-    ],
+      'border-surface-200 dark:border-surface-700'
+    ]
   }),
   lineright: ({ context }) => ({
     class: [
@@ -95,11 +97,11 @@ export default {
       'rounded-none',
 
       // Color
-      { 'border-t border-surface-200 dark:border-surface-700': context.lineTop },
-    ],
+      { 'border-t border-surface-200 dark:border-surface-700': context.lineTop }
+    ]
   }),
   nodecell: {
-    class: 'text-center align-top py-0 px-3',
+    class: 'text-center align-top py-0 px-3'
   },
   nodetoggler: {
     class: [
@@ -123,8 +125,8 @@ export default {
       'focus:outline-none focus:outline-offset-0 focus:ring focus:ring-primary-400/50 dark:focus:ring-primary-300/50',
 
       // Misc
-      'cursor-pointer no-underline select-none',
-    ],
+      'cursor-pointer no-underline select-none'
+    ]
   },
   nodetogglericon: {
     class: [
@@ -132,7 +134,7 @@ export default {
       'relative inline-block',
 
       // Size
-      'w-4 h-4',
-    ],
-  },
+      'w-4 h-4'
+    ]
+  }
 }

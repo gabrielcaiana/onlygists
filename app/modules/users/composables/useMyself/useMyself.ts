@@ -36,6 +36,6 @@ export function useMyself() {
 
   return {
     loading,
-    user,
+    user
   }
 }

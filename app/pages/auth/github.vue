@@ -2,11 +2,11 @@
 import OAuthRedirect from '@/modules/auth/screens/OAuthRedirect/OAuthRedirect.vue'
 
 useHead({
-  title: 'Redirecionamento | 🤩 onlygists',
+  title: 'Redirecionamento | 🤩 onlygists'
 })
 
 definePageMeta({
-  middleware: ['guest'],
+  middleware: ['guest']
 })
 </script>
 

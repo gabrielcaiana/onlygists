@@ -22,8 +22,8 @@ const props = withDefaults(
     isPaid: false,
     loading: false,
     code: DEFAULT_CODE_SNIPPET,
-    lang: 'typescript',
-  },
+    lang: 'typescript'
+  }
 )
 
 const isLoading: Ref<boolean> = ref(true)
@@ -57,6 +57,10 @@ watch(() => props.code, registerSintaxeHighlight, { immediate: true })
       />
     </div>
 
-    <pre v-if="!isPaid" class="w-full rounded bg-gray-200 p-5 overflow-x-hidden" v-html="htmlCode" />
+    <pre
+      v-if="!isPaid"
+      class="w-full rounded bg-gray-200 p-5 overflow-x-hidden"
+      v-html="htmlCode"
+    />
   </Loader>
 </template>

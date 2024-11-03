@@ -2,12 +2,12 @@
 import Edit from '@/modules/gists/screens/Edit/Edit.vue'
 
 useHead({
-  title: 'Editar gist | 🤩 onlygists',
+  title: 'Editar gist | 🤩 onlygists'
 })
 
 definePageMeta({
   layout: 'admin',
-  middlware: ['auth'],
+  middlware: ['auth']
 })
 </script>
 

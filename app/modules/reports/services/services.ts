@@ -6,7 +6,10 @@ import { type RevenueRow, totalRevenueAdapter } from './adapters'
 
 export default (client: SupabaseClient<Database>) => ({
   async totalGistsPublished(userId: string) {
-    const response = await client.from('gists').select('*', { count: 'exact' }).match({ profile_id: userId })
+    const response = await client
+      .from('gists')
+      .select('*', { count: 'exact' })
+      .match({ profile_id: userId })
     return response.count
   },
 
@@ -42,5 +45,5 @@ export default (client: SupabaseClient<Database>) => ({
       .returns<RevenueRow[]>()
 
     return totalRevenueAdapter(response.data)
-  },
+  }
 })

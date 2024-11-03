@@ -3,9 +3,9 @@ export default {
     class: [
       'relative',
       {
-        'flex flex-col h-full': props.scrollHeight === 'flex',
-      },
-    ],
+        'flex flex-col h-full': props.scrollHeight === 'flex'
+      }
+    ]
   }),
   loadingoverlay: {
     class: [
@@ -24,27 +24,29 @@ export default {
       'bg-surface-100/40 dark:bg-surface-800/40',
 
       // Transition
-      'transition duration-200',
-    ],
+      'transition duration-200'
+    ]
   },
   loadingicon: {
-    class: 'w-8 h-8 animate-spin',
+    class: 'w-8 h-8 animate-spin'
   },
   wrapper: ({ props }) => ({
     class: [
       // Overflow
       {
         'relative overflow-auto': props.scrollable,
-        'overflow-x-auto': props.resizableColumns,
-      },
-    ],
+        'overflow-x-auto': props.resizableColumns
+      }
+    ]
   }),
   header: ({ props }) => ({
     class: [
       'font-bold',
 
       // Shape
-      props.showGridlines ? 'border-x border-t border-b-0' : 'border-y border-x-0',
+      props.showGridlines
+        ? 'border-x border-t border-b-0'
+        : 'border-y border-x-0',
 
       // Spacing
       'p-4',
@@ -52,8 +54,8 @@ export default {
       // Color
       'bg-surface-50 dark:bg-surface-800',
       'border-surface-200 dark:border-surface-700',
-      'text-surface-700 dark:text-white/80',
-    ],
+      'text-surface-700 dark:text-white/80'
+    ]
   }),
   footer: {
     class: [
@@ -63,46 +65,46 @@ export default {
       // Padding & Font
       'p-4 font-bold',
       // Dark Mode
-      'dark:bg-surface-900 dark:text-white/70 dark:border-surface-700',
-    ],
+      'dark:bg-surface-900 dark:text-white/70 dark:border-surface-700'
+    ]
   },
   table: {
     class: [
       // Table & Width
-      'border-collapse table-fixed w-full ',
-    ],
+      'border-collapse table-fixed w-full '
+    ]
   },
   thead: ({ props }) => ({
     class: [
       // Position & Z-index
       {
-        'top-0 z-40 sticky': props.scrollable,
-      },
-    ],
+        'top-0 z-40 sticky': props.scrollable
+      }
+    ]
   }),
   tbody: ({ props }) => ({
     class: [
       // Block Display
       {
-        block: props.scrollable,
-      },
-    ],
+        block: props.scrollable
+      }
+    ]
   }),
   tfoot: ({ props }) => ({
     class: [
       // Block Display
       {
-        block: props.scrollable,
-      },
-    ],
+        block: props.scrollable
+      }
+    ]
   }),
   headerrow: ({ props }) => ({
     class: [
       // Flexbox & Width
       {
-        'flex flex-nowrap w-full': props.scrollable,
-      },
-    ],
+        'flex flex-nowrap w-full': props.scrollable
+      }
+    ]
   }),
   row: ({ context, props }) => ({
     class: [
@@ -111,30 +113,47 @@ export default {
 
       // Color
       'dark:text-white/80',
-      { 'bg-primary-50 text-primary-700 dark:bg-primary-400/30': context.selected },
-      { 'bg-surface-0 text-surface-600 dark:bg-surface-800': !context.selected },
+      {
+        'bg-primary-50 text-primary-700 dark:bg-primary-400/30':
+          context.selected
+      },
+      {
+        'bg-surface-0 text-surface-600 dark:bg-surface-800': !context.selected
+      },
 
       // Hover & Flexbox
       {
-        'hover:bg-surface-300/20 hover:text-surface-600': context.selectable && !context.selected,
+        'hover:bg-surface-300/20 hover:text-surface-600':
+          context.selectable && !context.selected
       },
       'focus:outline-none focus:outline-offset-0 focus:ring focus:ring-primary-400/50 ring-inset dark:focus:ring-primary-300/50',
 
       // Transition
-      { 'transition duration-200': (props.selectionMode && !context.selected) || props.rowHover },
-    ],
+      {
+        'transition duration-200':
+          (props.selectionMode && !context.selected) || props.rowHover
+      }
+    ]
   }),
   headercell: ({ context, props }) => ({
     class: [
       'font-bold',
 
       // Position
-      { 'sticky z-40': context.scrollable && context.scrollDirection === 'both' && context.frozen },
+      {
+        'sticky z-40':
+          context.scrollable &&
+          context.scrollDirection === 'both' &&
+          context.frozen
+      },
 
       // Flex & Alignment
       {
         'flex flex-1 items-center': context.scrollable,
-        'flex-initial shrink-0': context.scrollable && context.scrollDirection === 'both' && !context.frozen,
+        'flex-initial shrink-0':
+          context.scrollable &&
+          context.scrollDirection === 'both' &&
+          !context.frozen
       },
       'text-left',
 
@@ -143,7 +162,11 @@ export default {
       'border-0 border-b border-solid',
 
       // Spacing
-      context?.size === 'small' ? 'p-2' : context?.size === 'large' ? 'p-5' : 'p-4',
+      context?.size === 'small'
+        ? 'p-2'
+        : context?.size === 'large'
+          ? 'p-5'
+          : 'p-4',
 
       // Color
       (props.sortable === '' || props.sortable) && context.sorted
@@ -157,7 +180,7 @@ export default {
       // States
       {
         'hover:bg-surface-100 dark:hover:bg-surface-400/30':
-          (props.sortable === '' || props.sortable) && !context?.sorted,
+          (props.sortable === '' || props.sortable) && !context?.sorted
       },
       'focus-visible:outline-none focus-visible:outline-offset-0 focus-visible:ring focus-visible:ring-inset focus-visible:ring-primary-400/50 dark:focus-visible:ring-primary-300/50',
 
@@ -166,9 +189,10 @@ export default {
 
       // Misc
       {
-        'overflow-hidden relative bg-clip-padding': context.resizable && !context.frozen,
-      },
-    ],
+        'overflow-hidden relative bg-clip-padding':
+          context.resizable && !context.frozen
+      }
+    ]
   }),
   column: {
     headercell: ({ context, props }) => ({
@@ -176,12 +200,20 @@ export default {
         'font-bold',
 
         // Position
-        { 'sticky z-40': context.scrollable && context.scrollDirection === 'both' && context.frozen },
+        {
+          'sticky z-40':
+            context.scrollable &&
+            context.scrollDirection === 'both' &&
+            context.frozen
+        },
 
         // Flex & Alignment
         {
           'flex flex-1 items-center': context.scrollable,
-          'flex-initial shrink-0': context.scrollable && context.scrollDirection === 'both' && !context.frozen,
+          'flex-initial shrink-0':
+            context.scrollable &&
+            context.scrollDirection === 'both' &&
+            !context.frozen
         },
         'text-left',
 
@@ -190,7 +222,11 @@ export default {
         'border-0 border-b border-solid',
 
         // Spacing
-        context?.size === 'small' ? 'p-2' : context?.size === 'large' ? 'p-5' : 'p-4',
+        context?.size === 'small'
+          ? 'p-2'
+          : context?.size === 'large'
+            ? 'p-5'
+            : 'p-4',
 
         // Color
         (props.sortable === '' || props.sortable) && context.sorted
@@ -204,7 +240,7 @@ export default {
         // States
         {
           'hover:bg-surface-100 dark:hover:bg-surface-400/30':
-            (props.sortable === '' || props.sortable) && !context?.sorted,
+            (props.sortable === '' || props.sortable) && !context?.sorted
         },
         'focus-visible:outline-none focus-visible:outline-offset-0 focus-visible:ring focus-visible:ring-inset focus-visible:ring-primary-400/50 dark:focus-visible:ring-primary-300/50',
 
@@ -213,21 +249,28 @@ export default {
 
         // Misc
         {
-          'overflow-hidden relative bg-clip-padding': context.resizable && !context.frozen,
-        },
-      ],
+          'overflow-hidden relative bg-clip-padding':
+            context.resizable && !context.frozen
+        }
+      ]
     }),
     bodycell: ({ context }) => ({
       class: [
         // Position
         {
-          sticky: context.scrollable && context.scrollDirection === 'both' && context.frozen,
+          sticky:
+            context.scrollable &&
+            context.scrollDirection === 'both' &&
+            context.frozen
         },
 
         // Flex & Alignment
         {
           'flex flex-1 items-center': context.scrollable,
-          'flex-initial shrink-0': context.scrollable && context.scrollDirection === 'both' && !context.frozen,
+          'flex-initial shrink-0':
+            context.scrollable &&
+            context.scrollDirection === 'both' &&
+            !context.frozen
         },
         'text-left',
 
@@ -235,7 +278,7 @@ export default {
         'border-0 border-b border-solid',
         'border-surface-200 dark:border-surface-700',
         {
-          'border-x-0 border-l-0': !context.showGridlines,
+          'border-x-0 border-l-0': !context.showGridlines
         },
         { 'first:border-l border-r border-b': context?.showGridlines },
 
@@ -243,16 +286,23 @@ export default {
         'bg-surface-0 dark:bg-surface-800',
 
         // Spacing
-        context?.size === 'small' ? 'p-2' : context?.size === 'large' ? 'p-5' : 'p-4',
+        context?.size === 'small'
+          ? 'p-2'
+          : context?.size === 'large'
+            ? 'p-5'
+            : 'p-4',
 
         // Misc
         'dark:border-surface-700',
         {
           'cursor-pointer': context.selectable,
-          sticky: context.scrollable && context.scrollDirection === 'both' && context.frozen,
-          'border-x-0 border-l-0': !context.showGridlines,
-        },
-      ],
+          sticky:
+            context.scrollable &&
+            context.scrollDirection === 'both' &&
+            context.frozen,
+          'border-x-0 border-l-0': !context.showGridlines
+        }
+      ]
     }),
     rowtoggler: {
       class: [
@@ -285,14 +335,16 @@ export default {
 
         // Misc
         'overflow-hidden',
-        'cursor-pointer select-none',
-      ],
+        'cursor-pointer select-none'
+      ]
     },
     sorticon: ({ context }) => ({
       class: [
         'ml-2 inline-block',
-        context.sorted ? 'fill-primary-700 dark:fill-white/80' : 'fill-surface-700 dark:fill-white/70',
-      ],
+        context.sorted
+          ? 'fill-primary-700 dark:fill-white/80'
+          : 'fill-surface-700 dark:fill-white/70'
+      ]
     }),
     sortbadge: {
       class: [
@@ -310,8 +362,8 @@ export default {
 
         // Color
         'text-primary-700 dark:text-white',
-        'bg-primary-50 dark:bg-primary-400/30',
-      ],
+        'bg-primary-50 dark:bg-primary-400/30'
+      ]
     },
     columnresizer: {
       class: [
@@ -330,8 +382,8 @@ export default {
         'border border-transparent',
 
         // Misc
-        'cursor-col-resize',
-      ],
+        'cursor-col-resize'
+      ]
     },
     rowCheckbox: {
       root: {
@@ -351,8 +403,8 @@ export default {
 
           // Misc
           'cursor-pointer',
-          'select-none',
-        ],
+          'select-none'
+        ]
       },
       box: ({ props, context }) => ({
         class: [
@@ -371,24 +423,27 @@ export default {
 
           // Colors
           {
-            'border-surface-200 bg-surface-0 dark:border-surface-700 dark:bg-surface-900': !context.checked,
-            'border-primary-500 bg-primary-500 dark:border-primary-400 dark:bg-primary-400': context.checked,
+            'border-surface-200 bg-surface-0 dark:border-surface-700 dark:bg-surface-900':
+              !context.checked,
+            'border-primary-500 bg-primary-500 dark:border-primary-400 dark:bg-primary-400':
+              context.checked
           },
 
           // States
           {
-            'peer-hover:border-primary-500 dark:peer-hover:border-primary-400': !props.disabled && !context.checked,
+            'peer-hover:border-primary-500 dark:peer-hover:border-primary-400':
+              !props.disabled && !context.checked,
             'peer-hover:bg-primary-700 dark:peer-hover:bg-primary-300 peer-hover:border-primary-700 dark:peer-hover:border-primary-300':
               !props.disabled && context.checked,
             'peer-focus-visible:border-primary-500 dark:peer-focus-visible:border-primary-400 peer-focus-visible:ring-2 peer-focus-visible:ring-primary-400/20 dark:peer-focus-visible:ring-primary-300/20':
               !props.disabled,
-            'cursor-default opacity-60': props.disabled,
+            'cursor-default opacity-60': props.disabled
           },
 
           // Transitions
           'transition-colors',
-          'duration-200',
-        ],
+          'duration-200'
+        ]
       }),
       input: {
         class: [
@@ -415,8 +470,8 @@ export default {
 
           // Misc
           'appearance-none',
-          'cursor-pointer',
-        ],
+          'cursor-pointer'
+        ]
       },
       icon: {
         class: [
@@ -432,19 +487,20 @@ export default {
 
           // Transitions
           'transition-all',
-          'duration-200',
-        ],
-      },
+          'duration-200'
+        ]
+      }
     },
 
     transition: {
       enterFromClass: 'opacity-0 scale-y-[0.8]',
-      enterActiveClass: 'transition-[transform,opacity] duration-[120ms] ease-[cubic-bezier(0,0,0.2,1)]',
+      enterActiveClass:
+        'transition-[transform,opacity] duration-[120ms] ease-[cubic-bezier(0,0,0.2,1)]',
       leaveActiveClass: 'transition-opacity duration-100 ease-linear',
-      leaveToClass: 'opacity-0',
-    },
+      leaveToClass: 'opacity-0'
+    }
   },
   resizehelper: {
-    class: 'absolute hidden w-[2px] z-20 bg-primary-500 dark:bg-primary-400',
-  },
+    class: 'absolute hidden w-[2px] z-20 bg-primary-500 dark:bg-primary-400'
+  }
 }

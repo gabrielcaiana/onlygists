@@ -10,13 +10,13 @@ export default defineEventHandler(async (event) => {
 
   const isWebhookCall = url.pathname.startsWith('/webhooks')
 
-  if(isWebhookCall) {
+  if (isWebhookCall) {
     return
   }
 
   const isApiCall = url.pathname.startsWith('/api')
 
-  if(!isApiCall) {
+  if (!isApiCall) {
     return
   }
 
@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
   try {
     user = await serverSupabaseUser(event)
   } catch (error) {
-    console.warn("Auth session missing!", error)
+    console.warn('Auth session missing!', error)
   }
 
   const authContext: AuthContext = {

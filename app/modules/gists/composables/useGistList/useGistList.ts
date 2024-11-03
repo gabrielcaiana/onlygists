@@ -39,7 +39,7 @@ export function useGistList({ username }: UseGistListOptions) {
       const response = await services.gists.readAll({
         username,
         from: from.value,
-        to: to.value,
+        to: to.value
       })
 
       gists.value.push(...response.results)
@@ -57,7 +57,7 @@ export function useGistList({ username }: UseGistListOptions) {
       const response = await services.gists.readAll({
         username,
         from: from.value,
-        to: to.value,
+        to: to.value
       })
 
       gists.value = response.results
@@ -77,6 +77,6 @@ export function useGistList({ username }: UseGistListOptions) {
     gists,
     loading,
     loadingMore,
-    fetchMoreGistsByUsername,
+    fetchMoreGistsByUsername
   }
 }

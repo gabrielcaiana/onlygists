@@ -2,7 +2,7 @@
 import PublicProfile from '@/modules/users/screens/PublicProfile/PublicProfile.vue'
 
 definePageMeta({
-  layout: 'checkout',
+  layout: 'checkout'
 })
 </script>
 

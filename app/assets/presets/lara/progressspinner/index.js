@@ -14,8 +14,8 @@ export default {
 
       // Pseudo-Elements
       'before:block',
-      'before:pt-full',
-    ],
+      'before:pt-full'
+    ]
   },
   spinner: {
     class: [
@@ -36,8 +36,8 @@ export default {
       'origin-center',
 
       // Animations
-      'animate-spin',
-    ],
+      'animate-spin'
+    ]
   },
   circle: {
     class: [
@@ -45,7 +45,7 @@ export default {
       'text-red-500',
 
       // Misc
-      'progress-spinner-circle',
-    ],
-  },
+      'progress-spinner-circle'
+    ]
+  }
 }
